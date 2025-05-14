@@ -18,7 +18,7 @@ This will generate a dist/ folder containing the compiled extension.
 
 ⚠️ If you make changes to the source code, you will need to run npm run build again to update the plugin.
 
-3. Load the Extension in Google Chrome
+### 2. Load the Extension in Google Chrome
 Open Chrome and go to chrome://extensions
 
 Enable Developer Mode (top right corner)
@@ -29,7 +29,7 @@ Select the dist/ folder that was created after building the project
 
 ✅ You should now see and use the plugin in your browser!
 
-🧪 Development Notes
+### 🧪 Development Notes
 This project uses Vite for fast bundling and development
 
 Firebase is used for user authentication
