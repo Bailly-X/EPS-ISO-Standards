@@ -4,6 +4,12 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
+import {
+  getFirestore,
+  doc,
+  setDoc
+} from "firebase/firestore";
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyDl1nPpTswleVElEvOoGu-f71S2ZOjP5Nw",
@@ -16,21 +22,28 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+const db = getFirestore(app);
 
 // SIGN UP (Register)
-document.getElementById("signupBtn").addEventListener("click", () => {
+document.getElementById("signupBtn").addEventListener("click", async () => {
+  const username = document.getElementById("username").value.trim();
   const email = document.getElementById("email").value.trim();
   const password = document.getElementById("password").value.trim();
 
-  createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      document.getElementById("authMessage").textContent =
-        "✅ Account created! You can now log in.";
-      console.log("User registered:", userCredential.user.email);
-    })
-    .catch((error) => {
-      document.getElementById("authMessage").textContent = `❌ ${error.message}`;
+  try {
+    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+    const user = userCredential.user;
+    await setDoc(doc(db, "users", user.uid), {
+      username: username,
+      email: email,
+      createdAt: new Date()
     });
+
+    document.getElementById("authMessage").textContent = "✅ Account created! You can now log in.";
+    console.log("User saved to Firestore");
+  } catch (error) {
+    document.getElementById("authMessage").textContent = `❌ ${error.message}`;
+  }
 });
 
 // LOGIN
@@ -43,6 +56,7 @@ document.getElementById("loginBtn").addEventListener("click", () => {
       document.getElementById("authMessage").textContent =
         "✅ Logged in successfully!";
       console.log("User logged in:", userCredential.user.email);
+      window.location.href = './start-game.html';
     })
     .catch((error) => {
       document.getElementById("authMessage").textContent = `❌ ${error.message}`;
