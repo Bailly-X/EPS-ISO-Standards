@@ -3,6 +3,8 @@ import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  onAuthStateChanged, 
+  signOut
 } from "firebase/auth";
 import {
   getFirestore,
@@ -56,9 +58,23 @@ document.getElementById("loginBtn").addEventListener("click", () => {
       document.getElementById("authMessage").textContent =
         "✅ Logged in successfully!";
       console.log("User logged in:", userCredential.user.email);
-      window.location.href = './start-game.html';
+      window.location.href = './src/start-game.html';
     })
     .catch((error) => {
       document.getElementById("authMessage").textContent = `❌ ${error.message}`;
     });
+});
+
+
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+      window.location.href = './src/start-game.html';
+  } else {
+      return;
+  }
+});
+
+document.getElementById("logoutBtn").addEventListener("click", () => {
+  signOut(auth);
+  window.location.href = '../iso.html';
 });
