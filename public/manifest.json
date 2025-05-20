@@ -4,7 +4,7 @@
     "version": "1.0",
     "description": "Learn plain language with a quick daily quiz!",
     "action": {
-      "default_popup": "../iso.html",
+      "default_popup": "../login.html",
       "default_icon": "./icon.png"
     },
     "permissions": [],

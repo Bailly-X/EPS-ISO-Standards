@@ -76,5 +76,5 @@ onAuthStateChanged(auth, (user) => {
 
 document.getElementById("logoutBtn").addEventListener("click", () => {
   signOut(auth);
-  window.location.href = '../iso.html';
+  window.location.href = '../login.html';
 });
