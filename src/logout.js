@@ -20,8 +20,8 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 onAuthStateChanged(auth, (user) => {
-  if (user) {
-      window.location.href = './start-game.html';
+  if (!user) {
+    window.location.href = '../iso.html';
   } else {
       return;
   }
