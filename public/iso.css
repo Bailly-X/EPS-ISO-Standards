@@ -4,6 +4,7 @@ body {
     padding: 20px;
     width: 400px;
     height: 300px;
+    min-height: 100vh;
     box-sizing: border-box;
   }
   

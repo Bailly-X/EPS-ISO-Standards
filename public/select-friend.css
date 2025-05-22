@@ -1,0 +1,133 @@
+body {
+  margin: 0;
+  font-family: 'Architects Daughter', cursive, Arial, sans-serif;
+  background: #fff;
+  min-height: 100vh;
+  padding: 20px;
+  width: 400px;
+  height: 300px;
+}
+
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.header-row {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.back-btn {
+  background: none;
+  border: 2px solid #A259FF;
+  border-radius: 4px;
+  font-size: 24px;
+  padding: 4px 10px;
+  cursor: pointer;
+  margin-right: 12px;
+}
+
+.title {
+  flex: 1;
+  font-size: 2em;
+  font-family: 'Architects Daughter', cursive;
+}
+
+.search-section {
+  display: flex;
+  align-items: center;
+  margin: 24px 0 12px 0;
+}
+
+.search-input {
+  flex: 1;
+  padding: 12px;
+  font-size: 1em;
+  border: 2px solid #1700FF;
+  border-radius: 10px 0 0 10px;
+  outline: none;
+}
+
+.search-btn {
+  background: none;
+  border: 2px solid #1700FF;
+  border-left: none;
+  border-radius: 0 10px 10px 0;
+  font-size: 1.3em;
+  padding: 8px 14px;
+  cursor: pointer;
+  color: #1700FF;
+}
+
+.random-btn {
+  display: block;
+  width: 100%;
+  margin: 12px 0;
+  padding: 16px 0;
+  background: #A259FF;
+  color: #fff;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 14px;
+  font-family: 'Architects Daughter', cursive;
+  cursor: pointer;
+  margin-bottom: 18px;
+}
+
+.recent-title {
+  color: #A259FF;
+  margin: 16px 0 8px 4px;
+  font-size: 1em;
+}
+
+.friend-list {
+  margin-bottom: 36px;
+}
+
+.friend-row {
+  display: flex;
+  align-items: center;
+  padding: 10px 8px;
+  margin-bottom: 6px;
+  border-radius: 8px;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+.friend-row.selected {
+  background: #C6FFF6;
+}
+
+.friend-icon {
+  font-size: 1.5em;
+  margin-right: 12px;
+  color: #A259FF;
+}
+
+.friend-name {
+  flex: 1;
+  font-size: 1.1em;
+  color: #330066;
+}
+
+.check-mark {
+  color: #4F33FF;
+  font-size: 1.6em;
+}
+
+.invite-btn {
+  display: block;
+  width: 80%;
+  margin: 28px auto 0 auto;
+  padding: 18px 0;
+  background: #4F33FF;
+  color: #fff;
+  font-size: 1.25em;
+  border: none;
+  border-radius: 30px;
+  font-family: 'Architects Daughter', cursive;
+  cursor: pointer;
+}

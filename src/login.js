@@ -58,7 +58,7 @@ document.getElementById("loginBtn").addEventListener("click", () => {
       document.getElementById("authMessage").textContent =
         "✅ Logged in successfully!";
       console.log("User logged in:", userCredential.user.email);
-      window.location.href = './src/start-game.html';
+      window.location.href = '../start-game.html';
     })
     .catch((error) => {
       document.getElementById("authMessage").textContent = `❌ ${error.message}`;
@@ -68,7 +68,7 @@ document.getElementById("loginBtn").addEventListener("click", () => {
 
 onAuthStateChanged(auth, (user) => {
   if (user) {
-      window.location.href = './src/start-game.html';
+      window.location.href = './start-game.html';
   } else {
       return;
   }
@@ -76,5 +76,5 @@ onAuthStateChanged(auth, (user) => {
 
 document.getElementById("logoutBtn").addEventListener("click", () => {
   signOut(auth);
-  window.location.href = '../login.html';
+  window.location.href = './login.html';
 });

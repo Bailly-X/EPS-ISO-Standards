@@ -2,7 +2,7 @@
 export default {
   build: {
     rollupOptions: {
-      input: './iso.html',
+      input: './login.html',
     },
     outDir: 'dist',
     emptyOutDir: true
@@ -17,12 +17,13 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: {
-        main: resolve(__dirname, "./iso.html"),
-        startgame: resolve(__dirname, "./src/start-game.html"),
-        logout: resolve(__dirname, "./src/logout.js"),
+        main: resolve(__dirname, "./login.html"),
+        startgame: resolve(__dirname, "./start-game.html"),
+        game_menu: resolve(__dirname, "./game-menu.html"),
+        select_friend: resolve(__dirname, "./select-friend.html"),
       }
     },
     outDir: 'dist',
     emptyOutDir: true
   }
-})
+});

@@ -21,7 +21,7 @@ const auth = getAuth(app);
 
 onAuthStateChanged(auth, (user) => {
   if (!user) {
-    window.location.href = '../login.html';
+    window.location.href = './login.html';
   } else {
       return;
   }
@@ -29,5 +29,5 @@ onAuthStateChanged(auth, (user) => {
 
 document.getElementById("logoutBtn").addEventListener("click", async () => {
   await signOut(auth);
-  window.location.href = '../login.html';
+  window.location.href = './login.html';
 });
