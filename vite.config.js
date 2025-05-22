@@ -1,15 +1,3 @@
-/*
-export default {
-  build: {
-    rollupOptions: {
-      input: './login.html',
-    },
-    outDir: 'dist',
-    emptyOutDir: true
-  }
-}
-*/
-
 import { defineConfig } from 'vite';
 import { resolve } from 'path';
 
@@ -21,6 +9,7 @@ export default defineConfig({
         startgame: resolve(__dirname, "./start-game.html"),
         game_menu: resolve(__dirname, "./game-menu.html"),
         select_friend: resolve(__dirname, "./select-friend.html"),
+        notification_reminder: resolve(__dirname, "./notification_reminder.html"),
       }
     },
     outDir: 'dist',
