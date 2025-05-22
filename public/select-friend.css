@@ -22,10 +22,7 @@ body {
 
 .back-btn {
   background: none;
-  border: 2px solid #A259FF;
-  border-radius: 4px;
   font-size: 24px;
-  padding: 4px 10px;
   cursor: pointer;
   margin-right: 12px;
 }
@@ -130,4 +127,35 @@ body {
   border-radius: 30px;
   font-family: 'Architects Daughter', cursive;
   cursor: pointer;
+}
+
+.friend-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 10px;
+  margin-bottom: 5px;
+  transition: background 0.2s;
+}
+
+.friend-item.selected {
+  background: #c2fbe4;
+}
+
+.friend-icon {
+  font-size: 24px;
+  margin-right: 10px;
+  color: #7d50ff;
+}
+
+.friend-username {
+  flex: 1;
+  font-weight: bold;
+}
+
+.checkmark {
+  color: #7d50ff;
+  font-size: 24px;
+  margin-left: 10px;
 }
