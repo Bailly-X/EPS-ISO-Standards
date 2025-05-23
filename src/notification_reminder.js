@@ -1,15 +1,13 @@
 console.log("OUI")
 
-document.getElementById('notification_reminderBtn').addEventListener("click", () => {
-    window.location.href = '../notification_reminder.html';
-    console.log("ngj");
-});
+
+console.log("apres")
 
 document.getElementById('saveSettingsBtn').addEventListener('click', () => {
-   //const hour = parseInt(document.getElementById('hourInput').value, 10);
-   //const minute = parseInt(document.getElementById('minuteInput').value, 10);
-   //const reminderActive = document.getElementById('enableReminder').checked;
-   //const frequency = document.querySelector('input[name="frequency"]:checked').value;
+   const hour = parseInt(document.getElementById('hourInput').value, 10);
+   const minute = parseInt(document.getElementById('minuteInput').value, 10);
+   const reminderActive = document.getElementById('enableReminder').checked;
+   const frequency = document.querySelector('input[name="frequency"]:checked').value;
 
   console.log(`⏰ Rappel configuré pour ${hour}h${minute < 10 ? '0' : ''}${minute}, actif: ${reminderActive}, fréquence: ${frequency}`);
 });
