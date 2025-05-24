@@ -14,7 +14,7 @@
             "run_at": "document_end"
         }
     ],
-    "host_permissions": ["<all_urls"],
+    "host_permissions": ["<all_urls>"],
     "action": {
       "default_popup": "../login.html",
       "default_icon": "./icon.png"
@@ -22,7 +22,7 @@
     "background": {
         "service_worker": "background.js"
     },
-    "permissions": ["scripting"],
+    "permissions": ["scripting", "storage", "alarms"],
     "content_security_policy": {
     "extension_pages": "script-src 'self'; object-src 'self';"
     },

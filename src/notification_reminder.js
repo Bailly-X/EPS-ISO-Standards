@@ -7,6 +7,11 @@ document.getElementById('saveSettingsBtn').addEventListener('click', () => {
   const reminderActive = document.getElementById('enableReminder').checked;
   const frequency = document.querySelector('input[name="frequency"]:checked').value;
 
+  chrome.storage.sync.set({ hour, minute, enabled: reminderActive }, () => {
+  console.log('⚙️ Réglages sauvegardés');
+  });
+
+  
   console.log(`⏰ Rappel configuré pour ${hour}h${minute < 10 ? '0' : ''}${minute}, actif: ${reminderActive}, fréquence: ${frequency}`);
 
   if (reminderActive) {
