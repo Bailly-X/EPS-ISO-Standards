@@ -1,6 +1,7 @@
 
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs, query, where } from "firebase/firestore";
+import { getFirestore, collection, getDocs, query, where, addDoc, Timestamp, doc, getDoc } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
 
 
 const firebaseConfig = {
@@ -15,6 +16,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+const auth = getAuth(app);
 
 const friendListEl = document.querySelector('.friend-list');
 const searchInput = document.querySelector('.search-input');
@@ -89,10 +91,56 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 // invite user selected
-inviteBtn.addEventListener("click", () => {
-  alert("Inviting: " + [...selectedUsers].join(", "));
+inviteBtn.addEventListener("click", async () => {
+  if (selectedUsers.size === 0) {
+    alert("Select at least one friend!");
+    return;
+  }
+
+  // Récupère les données des utilisateurs sélectionnés
+  const invitedPlayers = allUsers.filter(user => selectedUsers.has(user.id)).map(user => ({
+    uid: user.id,
+    username: user.username,
+    accepted: false,
+  }));
+
+  // Ajoute le créateur (l'utilisateur actuel)
+  const currentUser = auth.currentUser;
+  if (!currentUser) {
+    alert("You need to be logged in!");
+    return;
+  }
+
+  let creatorUsername = currentUser.email;
+  try {
+    const userDoc = await getDoc(doc(db, "users", currentUser.uid));
+    if (userDoc.exists()) {
+      creatorUsername = userDoc.data().username || currentUser.email;
+    }
+  } catch (e) {
+    // En cas de problème, on garde l'email comme fallback
+  }
+
+  const creator = {
+    uid: currentUser.uid,
+    username: creatorUsername,
+    accepted: true,
+  };
+
+  // Création du document "game"
+  try {
+    const docRef = await addDoc(collection(db, "games"), {
+      players: [creator, ...invitedPlayers],
+      status: "waiting",
+      createdAt: Timestamp.now(),
+      rounds: [],
+      currentRound: 0
+  });
+  alert("Game created! Waiting for everyone to accept...");
+  // Ne redirige PAS ici ! 
+  // Juste rester sur place, ou afficher un message "En attente..."
+  } catch (e) {
+    alert("Failed to create the game: " + e.message);
+  }
 });
 
-document.getElementById("backButton").addEventListener("click", () => {
-  window.location.href = "./start-game.html";
-});
