@@ -7,19 +7,37 @@
   <link href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="container">
-    <!-- Header -->
-    <div class="header-row">
-      <span class="logo">Plainify</span>
-      <div class="header-icons">
-        <span class="icon-bell">&#128276;</span>
-        <span class="icon-user">&#128100;</span>
-      </div>
+  <!-- Header -->
+  <div class="header-row">
+    <span class="logo">Plainify</span>
+    <div class="header-icons">
+      <span class="icon-bell">&#128276;</span>
+      <span class="icon-user">&#128100;</span>
     </div>
-    
+  </div>
+
+  <div class="container">
     <!-- Streak Progress -->
     <div class="streak-card">
-      
+      <div class="streak-dates">
+        <span>Mon</span>
+        <span>Tue</span>
+        <span>Wed</span>
+        <span>Thu</span>
+        <span>Fri</span>
+        <span>Sat</span>
+        <span>Sun</span>
+      </div>
+    
+      <div class="streak-row">
+        <div class="streak-day"></div>
+        <div class="streak-day"></div>
+        <div class="streak-day"></div>
+        <div class="streak-day"></div>
+        <div class="streak-day"></div>
+        <div class="streak-day weekend"></div>
+        <div class="streak-day weekend"></div>
+      </div>
     </div>
 
     <!-- Reminder Card -->
@@ -36,10 +54,9 @@
         Start new Challenge
       </button>
       <!-- Games List -->
-      <div class="games-list">
-      </div>
+      <div class="games-list"></div>
     </div>
-  </div>
+  </div> <!-- FIN container -->
 
   <!-- Bottom Navigation -->
   <div class="bottom-nav">
@@ -53,8 +70,8 @@
       <span class="nav-icon">&#128214;</span>
     </button>
   </div>
-  
+
   <script type="module" src="./src/main-menu.js"></script>
   <script type="module" src="./src/invitation.js"></script>
+  <script type="module" src="./src/notification_reminder.js"></script>
 </body>
-</html>

@@ -1,20 +1,25 @@
 console.log("OUI");
 console.log("apres");
 
-document.getElementById('saveSettingsBtn').addEventListener('click', () => {
-  const hour = parseInt(document.getElementById('hourInput').value, 10);
-  const minute = parseInt(document.getElementById('minuteInput').value, 10);
-  const reminderActive = document.getElementById('enableReminder').checked;
-  const frequency = document.querySelector('input[name="frequency"]:checked').value;
+document.addEventListener('DOMContentLoaded', () => {
+  const saveBtn = document.getElementById('saveSettingsBtn');
+  if (saveBtn) {
+    saveBtn.addEventListener('click', () => {
+      const hour = parseInt(document.getElementById('hourInput').value, 10);
+      const minute = parseInt(document.getElementById('minuteInput').value, 10);
+      const reminderActive = document.getElementById('enableReminder').checked;
+      const frequency = document.querySelector('input[name="frequency"]:checked').value;
 
-  chrome.storage.sync.set({ hour, minute, enabled: reminderActive }, () => {
-  });
+      chrome.storage.sync.set({ hour, minute, enabled: reminderActive }, () => {});
 
-
-  if (reminderActive) {
-    startReminder();
+      if (reminderActive) {
+        startReminder();
+      } else {
+        clearInterval(intervalId);
+      }
+    });
   } else {
-    clearInterval(intervalId);
+    console.warn("⛔️ Bouton 'saveSettingsBtn' introuvable dans le DOM");
   }
 });
 

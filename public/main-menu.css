@@ -1,27 +1,42 @@
-body {
+html, body {
   font-family: 'Fredoka One', Arial, sans-serif;
   background: #fff;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: auto;
 }
 
+
 .container {
-  padding: 18px 14px 70px 14px;
-  max-width: 410px;
-  margin: 0 auto;
+  width: 100%;                
+  max-width: 700px;          
+  margin: 0 auto;             
+  padding: 18px 60px 80px;   
+  box-sizing: border-box;    
+  padding-bottom: 80; 
 }
+
 
 .header-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 20px;
+  padding: 18px 20px;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .logo {
   font-size: 2rem;
-  font-family: 'Fredoka One', Arial, sans-serif;
+  font-family: 'Roboto', Arial, sans-serif;
   color: #000;
+}
+
+.header-icons {
+  display: flex;
+  align-items: center;
 }
 
 .header-icons .icon-bell,
@@ -29,6 +44,7 @@ body {
   font-size: 1.4rem;
   margin-left: 18px;
   cursor: pointer;
+  display: inline-block;
 }
 
 .streak-card {
@@ -41,10 +57,24 @@ body {
   text-align: center;
 }
 
+.streak-dates {
+  font-family: 'Roboto', Arial, sans-serif;
+  display: flex;
+  justify-content: 0px;
+  font-size: 0.8rem;
+  color: #fff;
+  opacity: 0.75;
+  margin-bottom: 6px;
+  padding: 0 10px;
+  user-select: none;
+}
+
+
 .streak-row {
   display: flex;
-  justify-content: space-between;
+  gap: 9px;
   margin-bottom: 6px;
+  justify-content: center;
 }
 
 .streak-day {
@@ -62,12 +92,6 @@ body {
   background: #9143ea;
   opacity: 1;
   color: #fff;
-}
-
-.streak-day.current {
-  background: #fff;
-  opacity: 1;
-  border: 3px solid #9143ea;
 }
 
 .streak-dates {
@@ -216,4 +240,38 @@ body {
 }
 .nav-btn.active {
   background: #b4ffe4;
+}
+
+.streak-day.weekend {
+  position: relative;
+  background: #fff;
+  opacity: 1;
+  border: solid #b26afd;
+}
+
+.streak-day.weekend::before,
+.streak-day.weekend::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 14px;
+  height: 2px;
+  background-color: #b26afd;
+  transform-origin: center;
+}
+
+.streak-day.weekend::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.streak-day.weekend::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.streak-dates span,
+.streak-day {
+  width: 28px;
+  text-align: center;
+  flex-shrink: 0;  /* empêcher de rétrécir */
 }
