@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Plainify</title>
+  <link rel="stylesheet" href="./public/main-menu.css">
+  <link href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="header-row">
+      <span class="logo">Plainify</span>
+      <div class="header-icons">
+        <span class="icon-bell">&#128276;</span>
+        <span class="icon-user">&#128100;</span>
+      </div>
+    </div>
+    
+    <!-- Streak Progress -->
+    <div class="streak-card">
+      
+    </div>
+
+    <!-- Reminder Card -->
+    <div class="reminder-card">
+      <span class="reminder-text">You haven't challenged yourself today!</span>
+      <span class="reminder-avatar">A</span>
+    </div>
+    
+    <!-- Open Games -->
+    <div class="open-games-section">
+      <div class="openGames-title">Open Games</div>
+      <button id="start-challenge-btn">
+        <span class="plus-icon">+</span>
+        Start new Challenge
+      </button>
+      <!-- Games List -->
+      <div class="games-list">
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Navigation -->
+  <div class="bottom-nav">
+    <button class="nav-btn active">
+      <span class="nav-icon">&#8962;</span>
+    </button>
+    <button class="nav-btn">
+      <span class="nav-icon">&#128278;</span>
+    </button>
+    <button class="nav-btn">
+      <span class="nav-icon">&#128214;</span>
+    </button>
+  </div>
+  
+  <script type="module" src="./src/main-menu.js"></script>
+  <script type="module" src="./src/invitation.js"></script>
+</body>
+</html>
