@@ -8,17 +8,13 @@ document.getElementById('saveSettingsBtn').addEventListener('click', () => {
   const frequency = document.querySelector('input[name="frequency"]:checked').value;
 
   chrome.storage.sync.set({ hour, minute, enabled: reminderActive }, () => {
-  console.log('⚙️ Réglages sauvegardés');
   });
 
-  
-  console.log(`⏰ Rappel configuré pour ${hour}h${minute < 10 ? '0' : ''}${minute}, actif: ${reminderActive}, fréquence: ${frequency}`);
 
   if (reminderActive) {
     startReminder();
   } else {
     clearInterval(intervalId);
-    console.log('🔕 Rappel désactivé');
   }
 });
 
@@ -39,16 +35,14 @@ function startReminder() {
       const frequency = document.querySelector('input[name="frequency"]:checked').value;
 
       if (frequency === 'daily') {
-        console.log('📢 Rappel quotidien déclenché !');
+        console.log('Daily call!');
       } else if (frequency === 'weekly' && now.getDay() === 1) {
-        console.log('📢 Rappel hebdomadaire déclenché (lundi) !');
-      } else {
-        return;
-      }
+        console.log('Weekly call!');
+      } 
 
       chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
         if (tabs.length > 0) {
-          console.log("📨 Message envoyé au content script");
+          console.log("Message sent to contentscript");
           chrome.tabs.sendMessage(tabs[0].id, { type: "SHOW_REMINDER_IMAGE" });
         }
       });

@@ -1,8 +1,7 @@
-console.log("C EST CHARGE");
+console.log("loaded");
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.type === "SHOW_REMINDER_IMAGE") {
-    console.log("affiche toi le N");
     const existingImg = document.getElementById("extensionReminderImage");
 
     const img = document.createElement("img");
