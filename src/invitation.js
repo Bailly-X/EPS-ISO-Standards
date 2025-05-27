@@ -17,8 +17,7 @@ const db = getFirestore(app);
 const auth = getAuth(app);
 
 function showInviteAlert(game, myIndex) {
-  // Simple alert (tu peux faire mieux, genre une modal custom)
-  const accept = confirm(`🚨 Nouvelle invitation !\n${game.players[0].username} t'invite à une partie.\n\nAccepter ?`);
+  const accept = confirm(`New invitation !\n${game.players[0].username} invite's you for a game.\n\nAccept ?`);
   if (accept) {
     acceptInvitation(game.id, myIndex);
   }
@@ -31,19 +30,32 @@ async function acceptInvitation(gameId, myIndex) {
     const data = gameSnap.data();
     data.players[myIndex].accepted = true;
     await updateDoc(gameRef, { players: data.players });
-    alert("Invitation acceptée !");
+    alert("Invitation accepted !");
   }
 }
 
 auth.onAuthStateChanged(user => {
   if (!user) return;
   onSnapshot(collection(db, "games"), (snapshot) => {
+    if (snapshot.empty) return;
+
+    snapshot.docChanges().forEach(change => {
+      const game = change.doc.data();
+      const myIndex = game.players.findIndex(p => p.uid === user.uid && p.accepted === false);
+      if (myIndex > 0) {
+        const key = "invite-" + change.doc.id;
+        if (!localStorage.getItem(key)) {
+          showInviteAlert({ ...game, id: change.doc.id }, myIndex);
+          localStorage.setItem(key, "shown");
+        }
+      }
+    });
+
     snapshot.forEach(gameDoc => {
       const game = gameDoc.data();
       const myIndex = game.players.findIndex(p => p.uid === user.uid);
       if (myIndex === -1) return;
 
-      // 1. Si JE SUIS LE CREATEUR, ET tout le monde a accepté, ET status==waiting => mets à jour
       if (
         user.uid === game.players[0].uid &&
         game.status === "waiting" &&
@@ -52,8 +64,6 @@ auth.onAuthStateChanged(user => {
         const gameRef = doc(db, "games", gameDoc.id);
         updateDoc(gameRef, { status: "writing" });
       }
-
-      // 2. Redirection automatique quand status==writing (pour tout le monde)
       if (game.status === "writing") {
         const key = "entered-" + gameDoc.id;
         if (!localStorage.getItem(key)) {
@@ -64,12 +74,3 @@ auth.onAuthStateChanged(user => {
     });
   });
 });
-
-const myIndex = game.players.findIndex(p => p.uid === user.uid && p.accepted === false);
-if (myIndex > 0) { // Ne PAS mettre le créateur (qui est index 0)
-  const key = "invite-" + change.doc.id;
-  if (!localStorage.getItem(key)) {
-    showInviteAlert({ ...game, id: change.doc.id }, myIndex);
-    localStorage.setItem(key, "shown");
-  }
-}
