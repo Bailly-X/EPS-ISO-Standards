@@ -4,7 +4,6 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.type === "SHOW_REMINDER_IMAGE") {
     console.log("affiche toi le N");
     const existingImg = document.getElementById("extensionReminderImage");
-    if (existingImg) existingImg.remove();
 
     const img = document.createElement("img");
     img.src = chrome.runtime.getURL("icon.png");
