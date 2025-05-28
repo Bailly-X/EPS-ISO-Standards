@@ -97,19 +97,21 @@ inviteBtn.addEventListener("click", async () => {
     return;
   }
 
-  // Récupère les données des utilisateurs sélectionnés
-  const invitedPlayers = allUsers.filter(user => selectedUsers.has(user.id)).map(user => ({
-    uid: user.id,
-    username: user.username,
-    accepted: false,
-  }));
-
   // Ajoute le créateur (l'utilisateur actuel)
   const currentUser = auth.currentUser;
   if (!currentUser) {
     alert("You need to be logged in!");
     return;
   }
+
+  // Récupère les données des utilisateurs sélectionnés
+const invitedPlayers = allUsers
+  .filter(user => selectedUsers.has(user.id) && user.id !== currentUser.uid)
+  .map(user => ({
+    uid: user.id,
+    username: user.username,
+    accepted: false,
+  }));
 
   let creatorUsername = currentUser.email;
   try {
@@ -136,6 +138,7 @@ inviteBtn.addEventListener("click", async () => {
       rounds: [],
       currentRound: 0
   });
+  localStorage.setItem('currentGameId', docRef.id);
   alert("Game created! Waiting for everyone to accept...");
   // Ne redirige PAS ici ! 
   // Juste rester sur place, ou afficher un message "En attente..."

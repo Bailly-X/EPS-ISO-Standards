@@ -16,60 +16,77 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
 
-function showInviteAlert(game, myIndex) {
+
+let gameId = localStorage.getItem('currentGameId');
+
+
+function showInviteAlert(game, myIndex, key) {
   const accept = confirm(`New invitation !\n${game.players[0].username} invite's you for a game.\n\nAccept ?`);
   if (accept) {
-    acceptInvitation(game.id, myIndex);
+    acceptInvitation(game.id, myIndex, key);
   }
 }
 
-async function acceptInvitation(gameId, myIndex) {
+async function acceptInvitation(gameId, myIndex, key) {
   const gameRef = doc(db, "games", gameId);
   const gameSnap = await getDoc(gameRef);
   if (gameSnap.exists()) {
     const data = gameSnap.data();
     data.players[myIndex].accepted = true;
     await updateDoc(gameRef, { players: data.players });
-    alert("Invitation accepted !");
+    console.log("updateDoc envoyé");
+    const verif = await getDoc(gameRef);
+    console.log("Etat du doc MAJ :", verif.data().players);
   }
 }
 
 auth.onAuthStateChanged(user => {
   if (!user) return;
   onSnapshot(collection(db, "games"), (snapshot) => {
-    if (snapshot.empty) return;
-
-    snapshot.docChanges().forEach(change => {
-      const game = change.doc.data();
-      const myIndex = game.players.findIndex(p => p.uid === user.uid && p.accepted === false);
-      if (myIndex > 0) {
-        const key = "invite-" + change.doc.id;
-        if (!localStorage.getItem(key)) {
-          showInviteAlert({ ...game, id: change.doc.id }, myIndex);
-          localStorage.setItem(key, "shown");
-        }
-      }
-    });
-
     snapshot.forEach(gameDoc => {
       const game = gameDoc.data();
       const myIndex = game.players.findIndex(p => p.uid === user.uid);
-      if (myIndex === -1) return;
+      const gameRef = doc(db, "games", gameDoc.id);
+      if (myIndex === -1) return; // Je ne suis pas concerné par cette partie
 
-      if (
-        user.uid === game.players[0].uid &&
-        game.status === "waiting" &&
-        game.players.every(p => p.accepted)
-      ) {
-        const gameRef = doc(db, "games", gameDoc.id);
-        updateDoc(gameRef, { status: "writing" });
-      }
-      if (game.status === "writing") {
-        const key = "entered-" + gameDoc.id;
+      // Afficher l'invite si je ne l'ai pas encore acceptée
+      if (myIndex > 0 && !game.players[myIndex].accepted) {
+        const key = "invite-" + gameDoc.id;
         if (!localStorage.getItem(key)) {
-          localStorage.setItem(key, "1");
-          window.location.href = "./chose-text.html?gameId=" + gameDoc.id;
+          showInviteAlert({ ...game, id: gameDoc.id }, myIndex, key);
         }
+      }
+
+      // Créateur : passage à "writing" si tout le monde a accepté
+      if (
+          user.uid === game.players[0].uid &&
+          game.status === "waiting" &&
+          game.players.every(p => p.accepted)
+      ) {
+          if (game.status !== "writing") {
+              console.log("Créateur : je passe la partie à 'writing'");
+              updateDoc(gameRef, { status: "writing" });
+          }
+      }
+
+      // Créateur : redirection
+      if (user.uid === game.players[0].uid && game.status === "writing") {
+          const key = "entered-" + gameDoc.id;
+          if (!localStorage.getItem(key)) {
+              localStorage.setItem(key, "0");
+              window.location.href = "./chose-text.html?gameId=" + gameDoc.id;
+          }
+      } else if (user.uid !== game.players[0].uid && game.status === "writing") {
+          console.log("[INVITE] Ne doit PAS rediriger !");
+      }
+
+      // Invités : redirection uniquement quand "started"
+      if (user.uid !== game.players[0].uid && game.status === "started") {
+          const key = "entered-" + gameDoc.id;
+          if (!localStorage.getItem(key)) {
+              localStorage.setItem(key, "1");
+              //window.location.href = "./chose-text.html?gameId=" + gameId;
+          }
       }
     });
   });
