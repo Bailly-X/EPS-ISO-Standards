@@ -1,5 +1,5 @@
 document.getElementById("backArrow").addEventListener("click", () => {
-  window.location.href = "./start-game.html";
+  window.location.href = "./main-menu.html";
 });
 
 document.getElementById("startChallengeBtn").addEventListener("click", () => {

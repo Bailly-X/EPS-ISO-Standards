@@ -13,10 +13,13 @@ const firebaseConfig = {
   appId: "1:611269319621:web:2d5dc8981f44dafe4c49ac",
 };
 
-
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
+
+document.getElementById("backArrow").addEventListener("click", () => {
+  window.location.href = "./main-menu.html";
+});
 
 const friendListEl = document.querySelector('.friend-list');
 const searchInput = document.querySelector('.search-input');
@@ -97,14 +100,11 @@ inviteBtn.addEventListener("click", async () => {
     return;
   }
 
-  // Récupère les données des utilisateurs sélectionnés
   const invitedPlayers = allUsers.filter(user => selectedUsers.has(user.id)).map(user => ({
     uid: user.id,
     username: user.username,
-    accepted: false,
   }));
 
-  // Ajoute le créateur (l'utilisateur actuel)
   const currentUser = auth.currentUser;
   if (!currentUser) {
     alert("You need to be logged in!");
@@ -118,27 +118,25 @@ inviteBtn.addEventListener("click", async () => {
       creatorUsername = userDoc.data().username || currentUser.email;
     }
   } catch (e) {
-    // En cas de problème, on garde l'email comme fallback
   }
 
   const creator = {
     uid: currentUser.uid,
     username: creatorUsername,
-    accepted: true,
   };
 
-  // Création du document "game"
+const playerIds = [currentUser.uid, ...invitedPlayers.map(p => p.uid)];
+
   try {
     const docRef = await addDoc(collection(db, "games"), {
       players: [creator, ...invitedPlayers],
+      playerIds,
       status: "waiting",
       createdAt: Timestamp.now(),
       rounds: [],
       currentRound: 0
   });
-  alert("Game created! Waiting for everyone to accept...");
-  // Ne redirige PAS ici ! 
-  // Juste rester sur place, ou afficher un message "En attente..."
+  alert("Game created! You can go back to the main menu");
   } catch (e) {
     alert("Failed to create the game: " + e.message);
   }
