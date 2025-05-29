@@ -13,7 +13,7 @@ html, body {
   width: 100%;                
   max-width: 700px;          
   margin: 0 auto;             
-  padding: 18px 60px 80px;   
+  padding: 1px 60px 80px;   
   box-sizing: border-box;    
   padding-bottom: 80; 
 }
@@ -301,4 +301,11 @@ html, body {
 .game-status {
   font-size: 0.85em;
   font-weight: normal;
+}
+
+.nav-img-icon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  display: block;
 }
