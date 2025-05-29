@@ -23,22 +23,8 @@ function renderGameButton(game, docId, currentUserId) {
   const statusTxt = game.status === "waiting" ? "Waiting..." : (game.status || "");
 
   return `
-    <button class="join-game-btn" data-gameid="${docId}" style="
-      display: block;
-      width: 100%;
-      padding: 18px 0;
-      margin: 16px 0;
-      font-size: 1.25em;
-      font-weight: bold;
-      border-radius: 16px;
-      border: 2px solid #5b16f5;
-      background: #f8f7ff;
-      color: #5b16f5;
-      cursor: pointer;
-      box-shadow: 0 2px 10px #e3e0ff66;
-      transition: background 0.2s, color 0.2s;
-    ">
-      Game with : ${othersNames} — <span style="font-size:.85em;font-weight:normal">${statusTxt}</span>
+    <button class="join-game-btn" data-gameid="${docId}" data-status="${game.status}" data-currentround="${game.currentRound}">
+      Game with : ${othersNames} — <span class="game-status">${statusTxt}</span>
     </button>
   `;
 }
@@ -60,8 +46,18 @@ auth.onAuthStateChanged(user => {
     document.querySelectorAll(".join-game-btn").forEach(btn => {
       btn.onclick = (e) => {
         const gameId = btn.getAttribute("data-gameid");
+        const status = btn.getAttribute("data-status");
+        const currentRound = btn.getAttribute("data-currentround");
         localStorage.setItem("currentGameId", gameId);
-        window.location.href = "./chose-text.html?gameId=" + gameId;
+        if (status === "waiting" || currentRound === "0") {
+          window.location.href = "./chose-text.html?gameId=" + gameId;
+        } else if (status === "started" && currentRound === "1") {
+          window.location.href = "./round-transition.html?gameId=" + gameId + "&round=1";
+        } else if (status === "finished") {
+          alert("the game is finished!!");
+        } else {
+          window.location.href = "./round-transition.html?gameId=" + gameId + "&round=" + currentRound;
+        }
       }
     });
   });

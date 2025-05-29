@@ -12,6 +12,9 @@ export default defineConfig({
         select_friend: resolve(__dirname, "./select-friend.html"),
         notification_reminder: resolve(__dirname, "./notification_reminder.html"),
         chose_text: resolve(__dirname, "./chose-text.html"),
+        write_your_text: resolve(__dirname, "./write-your-text.html"),
+        play_round: resolve(__dirname, "./play-round.html"),
+        round_transition: resolve(__dirname, "./round-transition.html"),
       }
     },
     outDir: 'dist',

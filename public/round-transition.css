@@ -1,0 +1,59 @@
+body {
+  font-family: 'Fredoka One', Arial, sans-serif;
+  margin: 0;
+  text-align: center;
+  background: white;
+  min-height: 100vh;
+  padding: 20px;
+  width: 400px;
+  height: 300px;
+}
+
+.round-progress {
+  margin-top: 30px;
+  position: relative;
+}
+
+#round-indicator {
+  font-size: 1.4em;
+  margin-bottom: 8px;
+}
+
+#round-progress-bar {
+  width: 80%;
+  height: 6px;
+  background: #eee;
+  margin: 0 auto;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+#round-progress-bar::before {
+  content: "";
+  display: block;
+  width: var(--progress, 33%);
+  height: 100%;
+  background: #2f26fa;
+  border-radius: 8px;
+  transition: width 0.5s;
+}
+
+.round-center {
+  margin-top: 100px;
+}
+
+#round-title {
+  font-size: 2.1em;
+  color: #2f26fa;
+  font-weight: bold;
+  margin-bottom: 18px;
+  text-shadow: 1px 2px 8px #0001;
+  letter-spacing: .03em;
+}
+
+#round-instruction {
+  font-size: 1.2em;
+  color: #333;
+  margin: 0 12px;
+  line-height: 1.3;
+}
