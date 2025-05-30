@@ -1,6 +1,7 @@
 
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs, query, where } from "firebase/firestore";
+import { getFirestore, collection, getDocs, query, where, addDoc, Timestamp, doc, getDoc } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
 
 
 const firebaseConfig = {
@@ -12,9 +13,13 @@ const firebaseConfig = {
   appId: "1:611269319621:web:2d5dc8981f44dafe4c49ac",
 };
 
-
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+const auth = getAuth(app);
+
+document.getElementById("backArrow").addEventListener("click", () => {
+  window.location.href = "./main-menu.html";
+});
 
 const friendListEl = document.querySelector('.friend-list');
 const searchInput = document.querySelector('.search-input');
@@ -89,10 +94,51 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 // invite user selected
-inviteBtn.addEventListener("click", () => {
-  alert("Inviting: " + [...selectedUsers].join(", "));
+inviteBtn.addEventListener("click", async () => {
+  if (selectedUsers.size === 0) {
+    alert("Select at least one friend!");
+    return;
+  }
+
+  const invitedPlayers = allUsers.filter(user => selectedUsers.has(user.id)).map(user => ({
+    uid: user.id,
+    username: user.username,
+  }));
+
+  const currentUser = auth.currentUser;
+  if (!currentUser) {
+    alert("You need to be logged in!");
+    return;
+  }
+
+  let creatorUsername = currentUser.email;
+  try {
+    const userDoc = await getDoc(doc(db, "users", currentUser.uid));
+    if (userDoc.exists()) {
+      creatorUsername = userDoc.data().username || currentUser.email;
+    }
+  } catch (e) {
+  }
+
+  const creator = {
+    uid: currentUser.uid,
+    username: creatorUsername,
+  };
+
+const playerIds = [currentUser.uid, ...invitedPlayers.map(p => p.uid)];
+
+  try {
+    const docRef = await addDoc(collection(db, "games"), {
+      players: [creator, ...invitedPlayers],
+      playerIds,
+      status: "waiting",
+      createdAt: Timestamp.now(),
+      rounds: [],
+      currentRound: 0
+  });
+  alert("Game created! You can go back to the main menu");
+  } catch (e) {
+    alert("Failed to create the game: " + e.message);
+  }
 });
 
-document.getElementById("backButton").addEventListener("click", () => {
-  window.location.href = "./start-game.html";
-});

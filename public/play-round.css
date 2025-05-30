@@ -1,0 +1,127 @@
+body {
+  font-family: 'Fredoka One', Arial, sans-serif;
+  background: #fff;
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  width: 400px;
+  height: 300px;
+}
+
+.progress-bar {
+  width: 95vw;
+  max-width: 340px;
+  height: 6px;
+  background: #eee;
+  border-radius: 6px;
+  margin: 26px 0 18px 0;
+  position: relative;
+  overflow: hidden;
+}
+.progress-bar::after {
+  content: "";
+  display: block;
+  height: 100%;
+  background: #2e00e6;
+  width: var(--progress, 30%);
+  border-radius: 6px;
+  transition: width 0.4s;
+}
+
+.timer {
+  font-size: 1.5em;
+  color: #2e00e6;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.round-number {
+  font-size: 1.1em;
+  color: #222;
+  margin-bottom: 20px;
+}
+
+.round-title {
+  color: #2e00e6;
+  font-size: 1.45em;
+  text-align: center;
+  margin: 10px 0 14px 0;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 10px #2e00e622;
+}
+
+.given-text {
+  background: #f7f6ff;
+  border-radius: 15px;
+  border: 1.5px solid #d3cfff;
+  padding: 18px 16px;
+  font-size: 1.1em;
+  color: #333;
+  margin: 0 auto 24px auto;
+  max-width: 90vw;
+  width: 320px;
+  min-height: 80px;
+  box-sizing: border-box;
+}
+
+#plainTextInput {
+  width: 90vw;
+  max-width: 340px;
+  min-height: 110px;
+  padding: 14px 12px;
+  font-size: 1.1em;
+  font-family: inherit;
+  border-radius: 14px;
+  border: 2px solid #5b16f5;
+  margin: 16px 0 24px 0;
+  background: #fff;
+  color: #222;
+  transition: border 0.2s;
+  outline: none;
+  resize: vertical;
+}
+
+#plainTextInput:focus {
+  border-color: #2e00e6;
+  background: #f6f3ff;
+}
+
+#submitBtn {
+  width: 95vw;
+  max-width: 270px;
+  display: block;
+  margin: 0 auto;
+  background: #5400d4;
+  color: #fff;
+  font-size: 1.2em;
+  font-family: inherit;
+  font-weight: bold;
+  border: none;
+  border-radius: 30px;
+  padding: 14px 0;
+  box-shadow: 0 4px 16px #5b16f544;
+  cursor: pointer;
+  transition: background 0.18s;
+}
+
+#submitBtn:active {
+  background: #2e00e6;
+}
+
+#submitBtn[disabled] {
+  background: #d2d2ff;
+  color: #888;
+  cursor: not-allowed;
+}
+
+@media (max-width: 480px) {
+  .given-text, #plainTextInput, .progress-bar, #submitBtn {
+    max-width: 95vw;
+    width: 95vw;
+  }
+}
