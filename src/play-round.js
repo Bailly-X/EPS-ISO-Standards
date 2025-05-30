@@ -58,13 +58,25 @@ auth.onAuthStateChanged(async (user) => {
     const players = game.playerIds;
     const myIndex = players.indexOf(user.uid);
 
-    let targetIndex = (myIndex + roundIndex) % players.length;
-    if (targetIndex === myIndex) targetIndex = (targetIndex + 1) % players.length;
-    const targetUid = players[targetIndex];
+    function getGivenTextUid(players, roundIndex, myIndex, rounds) {
+        if (roundIndex === 1) {
+            // 1er round après l'original : donne le texte du joueur à gauche
+            return players[(myIndex - 1 + players.length) % players.length];
+        } else {
+            // Round suivant : qui m'a donné le texte précédent ?
+            const previousRound = rounds[roundIndex - 1];
+            const myUid = players[myIndex];
+            const lastSource = previousRound.answers[myUid]?.source;
+            return lastSource || players[(myIndex - roundIndex + players.length) % players.length];
+        }
+    }
 
-    const originalText = (game.rounds[0]?.texts?.[targetUid]) || "(Aucun texte)";
-
-    givenTextDiv.textContent = originalText;
+    const givenUid = getGivenTextUid(players, roundIndex, myIndex, game.rounds);
+    const givenText =
+        roundIndex === 1
+            ? game.rounds[0]?.texts?.[givenUid]
+            : game.rounds[roundIndex - 1]?.answers?.[givenUid]?.text || "(Aucun texte)";
+    givenTextDiv.textContent = givenText;
 
     const alreadySubmitted = (game.rounds?.[roundIndex]?.answers || {})[user.uid];
 
@@ -97,7 +109,7 @@ auth.onAuthStateChanged(async (user) => {
         let rounds = game.rounds || [];
         if (!rounds[roundIndex]) rounds[roundIndex] = { answers: {} };
         if (!rounds[roundIndex].answers) rounds[roundIndex].answers = {};
-        rounds[roundIndex].answers[user.uid] = { source: targetUid, text: val };
+        rounds[roundIndex].answers[user.uid] = { source: givenUid, text: val };
 
         await updateDoc(gameRef, { rounds });
         const afterUpdateSnap = await getDoc(gameRef);

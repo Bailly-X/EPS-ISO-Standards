@@ -54,7 +54,7 @@ auth.onAuthStateChanged(user => {
         } else if (status === "started" && currentRound === "1") {
           window.location.href = "./round-transition.html?gameId=" + gameId + "&round=1";
         } else if (status === "finished") {
-          alert("the game is finished!!");
+          window.location.href = "./result.html?gameId=" + gameId;
         } else {
           window.location.href = "./round-transition.html?gameId=" + gameId + "&round=" + currentRound;
         }
