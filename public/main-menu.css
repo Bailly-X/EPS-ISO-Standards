@@ -309,3 +309,29 @@ html, body {
   object-fit: contain;
   display: block;
 }
+
+.streak-day.checked {
+  position: relative;
+  background: none;
+  opacity: 1;
+}
+
+.streak-day.checked::before,
+.streak-day.checked::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 14px;
+  height: 2px;
+  background-color: #fff;
+  transform-origin: center;
+}
+
+.streak-day.checked::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.streak-day.checked::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
