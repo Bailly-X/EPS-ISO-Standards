@@ -13,7 +13,7 @@ html, body {
   width: 100%;                
   max-width: 700px;          
   margin: 0 auto;             
-  padding: 18px 60px 80px;   
+  padding: 1px 60px 80px;   
   box-sizing: border-box;    
   padding-bottom: 80; 
 }
@@ -301,4 +301,37 @@ html, body {
 .game-status {
   font-size: 0.85em;
   font-weight: normal;
+}
+
+.nav-img-icon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  display: block;
+}
+
+.streak-day.checked {
+  position: relative;
+  background: none;
+  opacity: 1;
+}
+
+.streak-day.checked::before,
+.streak-day.checked::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 14px;
+  height: 2px;
+  background-color: #fff;
+  transform-origin: center;
+}
+
+.streak-day.checked::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.streak-day.checked::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
 }

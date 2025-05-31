@@ -15,19 +15,20 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
 
-function updateStreakProgress(finishedCount) {
-  const maxDays = Math.min(finishedCount, 5);
-  const streakDays = document.querySelectorAll(".streak-row .streak-day");
+function updateBadgeUI(count) {
+  const days = count;
+  const badges = count;
 
-  for (let i = 0; i < streakDays.length; i++) {
-    if (i < maxDays) {
-      streakDays[i].classList.add("checked");
-    } else {
-      streakDays[i].classList.remove("checked");
-    }
-  }
+  document.querySelectorAll(".badge-number")[0].textContent = days;
+  document.querySelectorAll(".badge-number")[1].textContent = badges;
 
-  console.log(`[DEBUG] ${finishedCount} parties finies => ${maxDays} jours cochés.`);
+  const fillPercentage = Math.min((days / 10) * 100, 100);
+  document.querySelectorAll(".progress-fill")[0].style.width = fillPercentage + "%";
+  document.querySelectorAll(".progress-fill")[1].style.width = fillPercentage + "%";
+
+  document.querySelectorAll(".progress-info")[0].textContent = `${days}/10`;
+  document.querySelectorAll(".progress-info")[1].textContent = `${badges}/10`;
+
 }
 
 auth.onAuthStateChanged(user => {
@@ -43,28 +44,20 @@ auth.onAuthStateChanged(user => {
 
     snapshot.forEach(doc => {
       const game = doc.data();
-      if (game.status === "finished") {
+      const isFinished = game.status === "finished";
+      if (isFinished) {
         finishedCount++;
       }
     });
 
-    updateStreakProgress(finishedCount);
+    updateBadgeUI(finishedCount);
   });
-});
-
-document.getElementById("start-challenge-btn").addEventListener("click", () => {
-  window.location.href = "../game-menu.html";
-});
-
-document.querySelector(".icon-bell").addEventListener("click", () => {
-  window.location.href = "../notification_reminder.html";
-});
-
-document.getElementById("badges-btn").addEventListener("click", () => {
-  window.location.href = "../badges_menu.html";
 });
 
 document.getElementById("home-btn").addEventListener("click", () => {
   window.location.href = "../main-menu.html";
 });
 
+document.querySelector(".icon-bell").addEventListener("click", () => {
+  window.location.href = "../notification_reminder.html";
+});
