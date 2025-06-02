@@ -1,0 +1,133 @@
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  background: #fff;
+  margin: 0;
+  min-height: 100vh;
+  padding: 20px;
+  width: 400px;
+  height: 300px;
+}
+.container {
+  max-width: 380px;
+  margin: 0 auto;
+  padding: 0 10px 30px 10px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: flex-start;
+}
+.title-row {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  font-size: 2.1rem;
+  font-weight: 700;
+  margin-top: 32px;
+  margin-bottom: 16px;
+}
+.title-plain {
+  color: #00d9c0;
+  letter-spacing: -1px;
+}
+.title-checklist {
+  color: #652fff;
+  margin-left: 4px;
+  letter-spacing: -1px;
+}
+
+.checklist-scroll {
+  width: 100%;
+  max-width: 400px;
+  flex: 1 1 auto;
+  overflow-y: auto;
+  margin-bottom: 28px;
+}
+
+.checklist-section {
+  background: #bffaf3;
+  border-radius: 22px;
+  padding: 18px 18px 8px 18px;
+  margin-bottom: 18px;
+  box-shadow: 0 4px 16px 0 rgba(89,0,245,0.08);
+}
+.section-title {
+  color: #2d24f7;
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin-bottom: 7px;
+  text-align: center;
+}
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+li {
+  color: #1b1b1b;
+  font-size: 1.02rem;
+  font-weight: 500;
+  margin: 0 0 12px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.arrow {
+  color: #2222ff;
+  font-size: 1.3rem;
+  margin-left: 10px;
+  font-weight: 500;
+  user-select: none;
+}
+.begin-btn {
+  background: #4a04e2;
+  color: #fff;
+  border: none;
+  border-radius: 26px;
+  padding: 16px 0;
+  font-size: 1.27rem;
+  font-weight: 600;
+  width: 90%;
+  box-shadow: 0 4px 16px 0 rgba(89,0,245,0.16);
+  margin: 16px 0 0 0;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.begin-btn:hover {
+  background: #652fff;
+}
+@media (max-width: 420px) {
+  .container { padding: 0 2vw 30px 2vw; }
+}
+
+.explanation {
+  display: none;
+  font-size: 0.97rem;
+  color: #343646;
+  background: #f7f7ff;
+  border-radius: 12px;
+  margin-top: 5px;
+  margin-bottom: 7px;
+  padding: 11px 15px 10px 13px;
+  box-shadow: 0 2px 8px 0 rgba(100,50,230,0.08);
+  transition: max-height 0.25s;
+}
+
+.item.open .explanation {
+  display: block;
+}
+
+.item {
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  transition: background 0.13s;
+}
+.item:active {
+  background: #e1e8fd;
+}
+
+.item.open {
+  flex-direction: column;
+  align-items: flex-start;
+}

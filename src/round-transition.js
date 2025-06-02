@@ -50,7 +50,13 @@ auth.onAuthStateChanged(async (user) => {
   }
   roundInstruction.innerHTML = instruction;
 
-  setTimeout(() => {
-    window.location.href = `./play-round.html?gameId=${gameId}&round=${game.currentRound ?? 1}`;
-  }, 500);//put 6000 for 6 seconds
+  if (roundNumber === 1) {
+    setTimeout(() => {
+      window.location.href = `./check-list.html?gameId=${gameId}&round=${game.currentRound ?? 1}`;
+    }, 500);
+  } else {
+    setTimeout(() => {
+      window.location.href = `./play-round.html?gameId=${gameId}&round=${game.currentRound ?? 1}`;
+    }, 500);
+  }
 });
