@@ -25,6 +25,10 @@ const givenTextDiv = document.getElementById("givenText");
 const plainTextInput = document.getElementById("plainTextInput");
 const submitBtn = document.getElementById("submitBtn");
 
+document.getElementById("backButton").addEventListener("click", () => {
+  window.location.href = "./main-menu.html";
+});
+
 function isGameFinished(game) {
     const totalPlayers = game.playerIds.length;
     const neededRounds = totalPlayers;

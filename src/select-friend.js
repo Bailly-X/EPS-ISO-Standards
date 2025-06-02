@@ -136,7 +136,8 @@ const playerIds = [currentUser.uid, ...invitedPlayers.map(p => p.uid)];
       rounds: [],
       currentRound: 0
   });
-  alert("Game created! You can go back to the main menu");
+  alert("Game created! You are gonna be redirected to the main menu");
+  window.location.href = "./main-menu.html";
   } catch (e) {
     alert("Failed to create the game: " + e.message);
   }

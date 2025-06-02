@@ -28,6 +28,10 @@ let chains = [];
 let playersById = {};
 let current = 0;
 
+document.getElementById("backButton").addEventListener("click", () => {
+  window.location.href = "./main-menu.html";
+});
+
 function buildChainForInitialUid(initialUid, rounds) {
     const chain = [{
         uid: initialUid,
