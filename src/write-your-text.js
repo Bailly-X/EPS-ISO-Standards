@@ -24,6 +24,14 @@ document.getElementById("backButton").addEventListener("click", () => {
   window.location.href = "./main-menu.html";
 });
 
+window.addEventListener("DOMContentLoaded", () => {
+    const pickedText = sessionStorage.getItem("pickedText");
+    if (pickedText) {
+        textarea.value = pickedText
+        sessionStorage.removeItem("pickedText");w
+    }
+});
+
 auth.onAuthStateChanged(async (user) => {
   if (!user) return;
   readyBtn.onclick = async () => {
