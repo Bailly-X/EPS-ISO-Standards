@@ -94,3 +94,14 @@ input[type="radio"] {
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
+
+.back-arrow {
+    position: absolute;
+    left: 18px;
+    top: 16px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #333;
+    -webkit-user-select: none;
+    user-select: none;
+}
