@@ -85,3 +85,7 @@ document.getElementById("home-btn").addEventListener("click", () => {
 document.querySelector(".icon-bell").addEventListener("click", () => {
   window.location.href = "../notification_reminder.html";
 });
+
+document.getElementById("tuto-btn").addEventListener("click", () => {
+  window.location.href = "../tuto_plainlanguage.html";
+});

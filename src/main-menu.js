@@ -2,6 +2,8 @@ import { initializeApp } from "firebase/app";
 import { getFirestore, collection, query, where, onSnapshot } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 
+console.log("oui")
+
 const firebaseConfig = {
   apiKey: "AIzaSyDl1nPpTswleVElEvOoGu-f71S2ZOjP5Nw",
   authDomain: "plain-language-game.firebaseapp.com",
@@ -181,4 +183,8 @@ document.getElementById("badges-btn").addEventListener("click", () => {
 
 document.getElementById("home-btn").addEventListener("click", () => {
   window.location.href = "../main-menu.html";
+});
+
+document.getElementById("tuto-btn").addEventListener("click", () => {
+  window.location.href = "../tuto_plainlanguage.html";
 });

@@ -438,3 +438,9 @@ html, body {
 .receive-badge-btn:active {
   transform: translateY(0);
 }
+
+.logo-img {
+  height: auto;
+  max-height: 40px;
+  object-fit: contain;
+}
