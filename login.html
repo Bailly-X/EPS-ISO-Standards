@@ -5,17 +5,19 @@
     <link rel="stylesheet" href="./public/iso.css">
   </head>
   <body>
-    <div id="loginSection" class="popup">
-      <h2>Login</h2>
-      <input type="text" id="username" placeholder="Username" value="doc" />
-      <input type="email" id="email" placeholder="Email" value="test@test.com" />
-      <input type="password" id="password" placeholder="Password" value="testest" />
-
-      <button id="loginBtn">Login</button>
-      <button id="signupBtn">Create Account</button>
-      <p id="authMessage"></p>
+    <div class="gradient-bg">
+      <div id="loginSection" class="popup">
+        <label for="username" class="input-label">Username</label>
+        <input type="text" id="username" placeholder="Medium" value="doc"/>
+        <label for="email" class="input-label">Email</label>
+        <input type="email" id="email" placeholder="Medium" value="test@test.com"/>
+        <label for="password" class="input-label">Password</label>
+        <input type="password" id="password" placeholder="Medium" value="testest"/>
+        <button id="loginBtn" class="main-btn">Login</button>
+        <button id="signupBtn" class="main-btn">Create Account</button>
+        <p id="authMessage"></p>
+      </div>
     </div>
-
     <script type="module" src="/src/login.js"></script>
   </body>
 </html>
