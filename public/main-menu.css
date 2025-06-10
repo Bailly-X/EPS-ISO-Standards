@@ -335,3 +335,112 @@ html, body {
 .streak-day.checked::after {
   transform: translate(-50%, -50%) rotate(-45deg);
 }
+
+
+.badge-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  font-family: 'Fredoka One', cursive;
+}
+
+.badge-popup {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  padding: 40px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  max-width: 300px;
+  width: 90%;
+  backdrop-filter: blur(10px);
+}
+
+.badge-popup h2 {
+  color: #8B5CF6;
+  font-size: 24px;
+  margin: 0 0 10px 0;
+  font-family: 'Fredoka One', cursive;
+}
+
+.badge-popup p {
+  color: #8B5CF6;
+  font-size: 16px;
+  margin: 0 0 20px 0;
+  font-family: 'Fredoka One', cursive;
+}
+
+.badge-icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #E879F9, #8B5CF6);
+  border-radius: 15px;
+  margin: 20px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(139, 92, 246, 0.4);
+}
+
+.badge-icon::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 20px solid #8B5CF6;
+}
+
+.badge-number {
+  color: white;
+  font-size: 32px;
+  font-weight: bold;
+  font-family: 'Fredoka One', cursive;
+}
+
+.badge-description {
+  color: #374151;
+  font-size: 14px;
+  margin: 20px 0 30px 0;
+  font-family: 'Fredoka One', cursive;
+}
+
+.receive-badge-btn {
+  background: #8B5CF6;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 30px;
+  font-size: 16px;
+  font-family: 'Fredoka One', cursive;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+}
+
+.receive-badge-btn:hover {
+  background: #7C3AED;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+}
+
+.receive-badge-btn:active {
+  transform: translateY(0);
+}
+
+.logo-img {
+  height: auto;
+  max-height: 40px;
+  object-fit: contain;
+}

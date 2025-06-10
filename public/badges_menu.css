@@ -254,3 +254,10 @@ html, body {
   background-color: #fff;
   border: 1px solid #222;
 }
+
+
+.logo-img {
+  height: auto;
+  max-height: 40px;
+  object-fit: contain;
+}

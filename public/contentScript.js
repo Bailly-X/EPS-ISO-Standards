@@ -5,7 +5,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     const existingImg = document.getElementById("extensionReminderImage");
 
     const img = document.createElement("img");
-    img.src = chrome.runtime.getURL("icon.png");
+    img.src = chrome.runtime.getURL("icon.gif");
     img.id = "extensionReminderImage";
     img.style.position = "fixed";
     img.style.bottom = "20px";
