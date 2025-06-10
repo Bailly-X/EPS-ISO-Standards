@@ -17,7 +17,7 @@
     "host_permissions": ["<all_urls>"],
     "action": {
       "default_popup": "../login.html",
-      "default_icon": "./icon.png"
+      "default_icon": "./assets/logo_plan.png"
     },
     "background": {
         "service_worker": "background.js"
@@ -28,7 +28,7 @@
     },
     "web_accessible_resources": [
         {
-        "resources": ["icon.png"],
+        "resources": ["icon.gif"],
         "matches": ["<all_urls>"]
         }
     ]

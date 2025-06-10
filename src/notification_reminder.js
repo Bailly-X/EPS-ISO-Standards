@@ -1,7 +1,8 @@
-console.log("OUI");
-console.log("apres");
 
 document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById("backArrow").addEventListener("click", () => {
+  window.location.href = "./main-menu.html";
+  });
   const saveBtn = document.getElementById('saveSettingsBtn');
   if (saveBtn) {
     saveBtn.addEventListener('click', () => {
@@ -18,8 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
         clearInterval(intervalId);
       }
     });
-  } else {
-    console.warn("⛔️ Bouton 'saveSettingsBtn' introuvable dans le DOM");
   }
 });
 
@@ -54,3 +53,4 @@ function startReminder() {
     }
   }, 1000);
 }
+

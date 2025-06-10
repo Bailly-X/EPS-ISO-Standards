@@ -1,124 +1,184 @@
-    body {
-        font-family: 'Fredoka One', Arial, sans-serif;
-        background: #fff;
-        margin: 0;
-        padding: 20px;
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        min-height: 100vh;
-        width: 400px;
-        height: 300px;
-    }
+body {
+    font-family: 'Fredoka One', Arial, sans-serif;
+    background: #fff;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    width: 400px;
+    height: 300px;
+}
 
-    #comparison-main {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+#comparison-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-    .vote-btn {
-        width: 90%;
-        max-width: 420px;
-        display: block;
-        margin: 16px 0;
-        padding: 16px;
-        border-radius: 24px;
-        border: 2px solid #999;
-        background: #fff;
-        font-size: 1.15em;
-        box-shadow: 0 2px 8px #eee;
-        text-align: left;
-        cursor: pointer;
-        transition: box-shadow 0.18s;
-    }
+.vote-btn {
+    width: 90%;
+    max-width: 420px;
+    display: block;
+    margin: 16px 0;
+    padding: 16px;
+    border-radius: 24px;
+    border: 2px solid #999;
+    background: #fff;
+    font-size: 1.15em;
+    box-shadow: 0 2px 8px #eee;
+    text-align: left;
+    cursor: pointer;
+    transition: box-shadow 0.18s;
+}
 
-    .results-container { 
-        max-width: 400px; 
-        margin: 0 auto; 
-    }
-    .comparison-header { 
-        text-align: center; 
-        margin-top: 16px; 
-    }
-    .comparison-box {
-        background: #fff; 
-        border-radius: 18px; 
-        box-shadow: 0 2px 10px #0001; 
-        margin: 20px 0 0 0; 
-        padding: 16px; 
-        border: 1.5px solid #eee;
-    }
-    .final-box { 
-        background: #f2e7ff; 
-        border-radius: 18px; 
-        box-shadow: 0 2px 10px #0001; 
-        padding: 16px; 
-        margin-top: 20px; 
-    }
-    .step-list { 
-        margin-top: 16px; 
-    }
-    .step-item { 
-        background: #f6f6fa; 
-        border-radius: 16px; 
-        margin: 8px 0; 
-        padding: 12px 12px 8px 12px; 
-        box-shadow: 0 1px 5px #0001; 
-    }
-    .step-username { 
-        font-size: 0.98em; 
-        font-weight: bold; 
-        color: #222; 
-        margin-bottom: 2px; 
-    }
-    .nav-btn-row { 
-        display: flex; 
-        justify-content: space-between; 
-        align-items: center; 
-        margin: 32px 0 0 0; 
-    }
-    .nav-btn { 
-        border: none; 
-        font-weight: bold; 
-        font-size: 1.2em; 
-        padding: 10px 38px; 
-        border-radius: 22px; 
-        background: #501ceb; 
-        color: #fff; 
-        opacity: 1; 
-        cursor: pointer; 
-    }
-    .nav-btn[disabled] { 
-        background: #f5ebff; 
-        color: #bbb; 
-        opacity: .6; 
-        cursor: default;
-    }
-    .see-steps-btn { 
-        display:block; 
-        margin:12px auto 0 auto; 
-        background:none; 
-        border:none; 
-        color:#4a1cc6; 
-        font-weight:bold; 
-        cursor:pointer; 
-        font-size:1.05em; 
-    }
-    .comparison-header span { 
-        font-weight:bold; 
-        font-size:1.3em; 
-    }
-    .comparison-counter { 
-        font-size: 1em; 
-        float:right; 
-        margin-top:8px; 
-    }
+.results-container { 
+    max-width: 400px; 
+    margin: 0 auto; 
+}
+.comparison-header { 
+    text-align: center; 
+    margin-top: 16px; 
+}
+.comparison-box {
+    background: #fff; 
+    border-radius: 18px; 
+    box-shadow: 0 2px 10px #0001; 
+    margin: 20px 0 0 0; 
+    padding: 16px; 
+    border: 1.5px solid #eee;
+}
+.final-box { 
+    background: #f2e7ff; 
+    border-radius: 18px; 
+    box-shadow: 0 2px 10px #0001; 
+    padding: 16px; 
+    margin-top: 20px; 
+}
+.step-list { 
+    margin-top: 16px; 
+}
+.step-item { 
+    background: #f6f6fa; 
+    border-radius: 16px; 
+    margin: 8px 0; 
+    padding: 12px 12px 8px 12px; 
+    box-shadow: 0 1px 5px #0001; 
+}
+.step-username { 
+    font-size: 0.98em; 
+    font-weight: bold; 
+    color: #222; 
+    margin-bottom: 2px; 
+}
+.nav-btn-row { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin: 32px 0 0 0; 
+}
+.nav-btn { 
+    border: none; 
+    font-weight: bold; 
+    font-size: 1.2em; 
+    padding: 10px 38px; 
+    border-radius: 22px; 
+    background: #501ceb; 
+    color: #fff; 
+    opacity: 1; 
+    cursor: pointer; 
+}
+.nav-btn[disabled] { 
+    background: #f5ebff; 
+    color: #bbb; 
+    opacity: .6; 
+    cursor: default;
+}
+.see-steps-btn { 
+    display:block; 
+    margin:12px auto 0 auto; 
+    background:none; 
+    border:none; 
+    color:#4a1cc6; 
+    font-weight:bold; 
+    cursor:pointer; 
+    font-size:1.05em; 
+}
+.comparison-header span { 
+    font-weight:bold; 
+    font-size:1.3em; 
+}
+.comparison-counter { 
+    font-size: 1em; 
+    float:right; 
+    margin-top:8px; 
+}
 
-    .vote-btn .step-username {
-        display: block;
-        font-weight: bold;
-        margin-bottom: 6px;
-        color: #5a32ea;
-    }
+.vote-btn .step-username {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 6px;
+    color: #5a32ea;
+}
+
+.vote-btn.voted {
+  border: 2px solid #501ceb;
+  box-shadow: 0 0 0 2px #d3bfff;
+  background: #f3edff;
+}
+
+.vote-btn.winner {
+    border: 3px solid #a485e8 !important;
+    background: #f2e7ff !important;
+    box-shadow: 0 0 0 2px #dec8ff;
+}
+
+.vote-btn .votes-count {
+  float: right;
+  font-weight: bold;
+  color: #501ceb;
+  margin-top: 2px;
+}
+
+.winner-badge {
+    color: #2ebd59;
+    font-weight: bold;
+    margin-left: 10px;
+    font-size: 1em;
+    vertical-align: middle;
+}
+
+.vote-btn.step-item {
+    position: relative;
+}
+
+.winner-badge-img {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    width: 24px;
+    height: 33px;
+    z-index: 2;
+    pointer-events: none;
+    background: none;
+}
+
+.vote-step-wrap {
+    width: 90%;
+    max-width: 420px;
+    margin: 16px 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.votes-count-top {
+    font-weight: bold;
+    color: #501ceb;
+    font-size: 1em;
+    margin-bottom: 4px;
+    margin-left: 10px;
+}

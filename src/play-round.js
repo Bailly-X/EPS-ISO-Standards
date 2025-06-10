@@ -25,6 +25,41 @@ const givenTextDiv = document.getElementById("givenText");
 const plainTextInput = document.getElementById("plainTextInput");
 const submitBtn = document.getElementById("submitBtn");
 
+const timerDiv = document.getElementById("timer");
+let timer = 180;
+let intervalId;
+
+function formatTime(secs) {
+  const min = Math.floor(secs / 60);
+  const sec = secs % 60;
+  return `${min}:${sec.toString().padStart(2, '0')}s`;
+}
+
+function startTimer() {
+  timerDiv.textContent = formatTime(timer);
+  intervalId = setInterval(() => {
+    timer--;
+    timerDiv.textContent = formatTime(timer);
+    if (timer <= 0) {
+        clearInterval(intervalId);
+        timerDiv.textContent = "0:00s";
+        plainTextInput.disabled = true;
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Time’s up!";
+        alert("Time is up! Please try again next round.");
+        if (!plainTextInput.disabled && !submitBtn.disabled) {
+            submitBtn.click();
+        }
+    }
+  }, 1000);
+}
+
+startTimer();
+
+document.getElementById("backButton").addEventListener("click", () => {
+  window.location.href = "./main-menu.html";
+});
+
 function isGameFinished(game) {
     const totalPlayers = game.playerIds.length;
     const neededRounds = totalPlayers;
@@ -90,7 +125,7 @@ auth.onAuthStateChanged(async (user) => {
         document.getElementById("submitBtn").disabled = false;
         document.getElementById("submitBtn").textContent = "Submit";
     }
-    roundNumberDiv.textContent = `Round ${roundIndex + 1}/${game.rounds.length}`;
+    roundNumberDiv.textContent = `Round ${roundIndex}/${totalRounds}`;
     roundTitle.textContent = "Rewrite the text now!";
 
     submitBtn.onclick = async () => {

@@ -1,24 +1,67 @@
 body {
-  font-family: 'Fredoka One', Arial, sans-serif;
+  font-family: 'Inter', Arial, sans-serif;
   background: #fff;
   margin: 0;
-  padding: 20px;
+  min-height: 100vh;
+  width: 100vw;
   box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+
+.container {
+  max-width: 440px;
+  width: 100vw;
+  margin: 0 auto;
+  padding: 0 10px 30px 10px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   min-height: 100vh;
-  width: 400px;
-  height: 300px;
+  box-sizing: border-box;
+}
+
+.header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 44px;
+  background: #fff;
+  margin-top: 12px;
+  margin-bottom: 0px;
+}
+
+.back-btn {
+  font-size: 2rem;
+  cursor: pointer;
+  color: #181818;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.timer {
+  font-size: 2rem;
+  color: #1600bf;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  min-width: 75px;
+  text-align: center;
+}
+
+.round-number {
+  font-size: 1.15rem;
+  color: #222;
+  font-weight: 500;
+  min-width: 78px;
+  text-align: right;
 }
 
 .progress-bar {
-  width: 95vw;
-  max-width: 340px;
-  height: 6px;
-  background: #eee;
-  border-radius: 6px;
-  margin: 26px 0 18px 0;
+  height: 5px;
+  background: #2e00e6;
+  margin: 12px 0 8px 0;
+  border-radius: 2px;
+  width: 100%;
   position: relative;
   overflow: hidden;
 }
@@ -26,91 +69,72 @@ body {
   content: "";
   display: block;
   height: 100%;
-  background: #2e00e6;
+  background: #c8c8ff;
   width: var(--progress, 30%);
-  border-radius: 6px;
-  transition: width 0.4s;
-}
-
-.timer {
-  font-size: 1.5em;
-  color: #2e00e6;
-  font-weight: bold;
-  margin-bottom: 8px;
-}
-
-.round-number {
-  font-size: 1.1em;
-  color: #222;
-  margin-bottom: 20px;
+  border-radius: 2px;
+  transition: width 0.3s;
 }
 
 .round-title {
-  color: #2e00e6;
-  font-size: 1.45em;
-  text-align: center;
-  margin: 10px 0 14px 0;
-  font-weight: bold;
-  letter-spacing: 1px;
-  text-shadow: 0 2px 10px #2e00e622;
+  color: #1801e2;
+  font-size: 1.25em;
+  font-weight: 700;
+  margin: 18px 0 10px 0;
+  text-align: left;
 }
 
 .given-text {
-  background: #f7f6ff;
-  border-radius: 15px;
-  border: 1.5px solid #d3cfff;
-  padding: 18px 16px;
-  font-size: 1.1em;
-  color: #333;
-  margin: 0 auto 24px auto;
-  max-width: 90vw;
-  width: 320px;
-  min-height: 80px;
-  box-sizing: border-box;
+  font-size: 1.14em;
+  color: #222;
+  background: none;
+  margin-bottom: 18px;
+  line-height: 1.35;
 }
 
 #plainTextInput {
-  width: 90vw;
-  max-width: 340px;
-  min-height: 110px;
-  padding: 14px 12px;
-  font-size: 1.1em;
+  width: 100%;
+  min-height: 120px;
+  max-width: 100%;
+  padding: 16px 13px;
+  font-size: 1.09em;
   font-family: inherit;
   border-radius: 14px;
-  border: 2px solid #5b16f5;
-  margin: 16px 0 24px 0;
+  border: 2px solid #4404e6;
+  margin: 12px 0 24px 0;
   background: #fff;
   color: #222;
+  box-sizing: border-box;
+  display: block;
   transition: border 0.2s;
   outline: none;
   resize: vertical;
 }
 
 #plainTextInput:focus {
-  border-color: #2e00e6;
-  background: #f6f3ff;
+  border-color: #1d11d7;
+  background: #f5f6fb;
 }
 
 #submitBtn {
-  width: 95vw;
-  max-width: 270px;
-  display: block;
+  width: 100%;
+  max-width: 340px;
   margin: 0 auto;
-  background: #5400d4;
+  background: #4a00e6;
   color: #fff;
-  font-size: 1.2em;
+  font-size: 1.3em;
   font-family: inherit;
-  font-weight: bold;
+  font-weight: 600;
   border: none;
-  border-radius: 30px;
-  padding: 14px 0;
-  box-shadow: 0 4px 16px #5b16f544;
+  border-radius: 33px;
+  padding: 18px 0;
+  box-shadow: 0 4px 18px #5226e622;
   cursor: pointer;
-  transition: background 0.18s;
+  transition: background 0.16s, color 0.14s;
+  display: block;
 }
 
 #submitBtn:active {
-  background: #2e00e6;
+  background: #2601a6;
 }
 
 #submitBtn[disabled] {
@@ -119,9 +143,13 @@ body {
   cursor: not-allowed;
 }
 
-@media (max-width: 480px) {
-  .given-text, #plainTextInput, .progress-bar, #submitBtn {
-    max-width: 95vw;
-    width: 95vw;
+@media (max-width: 520px) {
+  .container {
+    max-width: 99vw;
+    padding: 0 2vw 28px 2vw;
+  }
+  .given-text, #plainTextInput, #submitBtn {
+    max-width: 99vw;
+    width: 99vw;
   }
 }
