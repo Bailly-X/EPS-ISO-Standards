@@ -55,25 +55,6 @@ html, body {
   text-align: center;
 }
 
-.streak-dates {
-  font-family: 'Roboto', Arial, sans-serif;
-  display: flex;
-  justify-content: 0px;
-  font-size: 0.8rem;
-  color: #fff;
-  opacity: 0.75;
-  margin-bottom: 6px;
-  padding: 0 10px;
-  user-select: none;
-}
-
-
-.streak-row {
-  display: flex;
-  gap: 9px;
-  margin-bottom: 6px;
-  justify-content: center;
-}
 
 .streak-day {
   width: 28px;
@@ -84,6 +65,9 @@ html, body {
   line-height: 28px;
   font-size: 1.15rem;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .streak-day.done {
@@ -92,14 +76,7 @@ html, body {
   color: #fff;
 }
 
-.streak-dates {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.9rem;
-  color: #fff;
-  opacity: 0.75;
-  margin-bottom: 6px;
-}
+
 
 .streak-text {
   font-weight: bold;
@@ -244,7 +221,6 @@ html, body {
   position: relative;
   background: #fff;
   opacity: 1;
-  border: solid #b26afd;
 }
 
 .streak-day.weekend::before,
@@ -267,11 +243,26 @@ html, body {
   transform: translate(-50%, -50%) rotate(-45deg);
 }
 
-.streak-dates span,
-.streak-day {
+.streak-dates {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: #fff;
+  opacity: 0.75;
+  margin-bottom: 6px;
+  padding: 0 10px;
+}
+
+.streak-dates span {
   width: 28px;
   text-align: center;
-  flex-shrink: 0;  /* empêcher de rétrécir */
+}
+
+.streak-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 0; /* Pour bien caler avec les labels */
+  padding: 0 10px;
 }
 
 .join-game-btn {
@@ -310,28 +301,24 @@ html, body {
 
 .streak-day.checked {
   position: relative;
-  background: none;
+  background: #CD9EFE;
   opacity: 1;
 }
 
-.streak-day.checked::before,
-.streak-day.checked::after {
+.streak-day.checked::before {
   content: '';
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 14px;
-  height: 2px;
-  background-color: #fff;
-  transform-origin: center;
-}
-
-.streak-day.checked::before {
+  width: 6px;
+  height: 10px;
+  border: solid #22c55e;
+  border-width: 0 2px 2px 0;
   transform: translate(-50%, -50%) rotate(45deg);
 }
 
 .streak-day.checked::after {
-  transform: translate(-50%, -50%) rotate(-45deg);
+  content: '';
 }
 
 
