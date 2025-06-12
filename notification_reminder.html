@@ -1,46 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="chrome-extension-page">
 <head>
   <meta charset="UTF-8">
   <title>Pop-up Manager</title>
+  <link rel="stylesheet" href="./public/global-style.css">
   <link rel="stylesheet" href="./public/notification_reminder.css">
 </head>
-<body>
-  <div id="backArrow" class="back-arrow">
-      &#8592;
-    </div>
-  <h2 style="text-align: left;">Pop-up Manager</h2>
+<body class="chrome-extension-page">
+  <div class="chrome-extension-wrapper">
+    <div class="chrome-extension-content">
+      <div id="backArrow" class="back-arrow">
+          &#8592;
+        </div>
+      <h2 style="text-align: left;">Pop-up Manager</h2>
 
-  <div class="settings-box">
+      <div class="settings-box">
 
-    <div class="section">
-      <label>
-        <input type="checkbox" id="enableReminder">
-        Pop-up Notifications
-      </label>
-    </div>
+        <div class="section">
+          <label>
+            <input type="checkbox" id="enableReminder">
+            Pop-up Notifications
+          </label>
+        </div>
 
-    <div class="section">
-      <label>
-        <input type="radio" name="frequency" value="daily" checked>
-        Every day
-      </label>
-      <label>
-        <input type="radio" name="frequency" value="weekly">
-        Every week
-      </label>
-    </div>
+        <div class="section">
+          <label>
+            <input type="radio" name="frequency" value="daily" checked>
+            Every day
+          </label>
+          <label>
+            <input type="radio" name="frequency" value="weekly">
+            Every week
+          </label>
+        </div>
 
-    <div class="section">
-      <label for="timeInput">Time for the reminder:</label>
-      <div class="time-inputs">
-        <input type="number" id="hourInput" min="0" max="23" placeholder="HH">
-        <input type="number" id="minuteInput" min="0" max="59" placeholder="MM">
+        <div class="section">
+          <label for="timeInput">Time for the reminder:</label>
+          <div class="time-inputs">
+            <input type="number" id="hourInput" min="0" max="23" placeholder="HH">
+            <input type="number" id="minuteInput" min="0" max="59" placeholder="MM">
+          </div>
+        </div>
       </div>
+      <button class="save-btn" id="saveSettingsBtn">Save Settings</button>
     </div>
   </div>
-  <button class="save-btn" id="saveSettingsBtn">Save Settings</button>
-
   <script type="module" src="./src/notification_reminder.js"></script>
 </body>
 </html>

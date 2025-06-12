@@ -53,10 +53,10 @@ auth.onAuthStateChanged(async (user) => {
   if (roundNumber === 1) {
     setTimeout(() => {
       window.location.href = `./check-list.html?gameId=${gameId}&round=${game.currentRound ?? 1}`;
-    }, 500);
+    }, 2500);
   } else {
     setTimeout(() => {
       window.location.href = `./play-round.html?gameId=${gameId}&round=${game.currentRound ?? 1}`;
-    }, 500);
+    }, 2500);
   }
 });

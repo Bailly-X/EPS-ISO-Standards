@@ -1,87 +1,92 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="chrome-extension-page">
 <head>
   <meta charset="UTF-8">
   <title>Plain Checklist</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./public/global-style.css">
   <link rel="stylesheet" href="./public/check-list.css">
 </head>
-<body>
-  <div class="container">
-    <div class="title-row">
-      <span class="title-plain">Plain</span>
-      <span class="title-checklist">Checklist</span>
+<body class="chrome-extension-page">
+  <div class="chrome-extension-wrapper">
+    <div class="chrome-extension-content">
+      <div class="container">
+        <div class="title-row">
+          <span class="title-plain">Plain</span>
+          <span class="title-checklist">Checklist</span>
+        </div>
+
+        <div class="checklist-scroll">
+          <div class="checklist-section">
+            <div class="section-title">Structure</div>
+            <ul>
+              <li class="item" data-point="1">1. One topic per paragraph <span class="arrow">&#8250;</span>
+                <div class="explanation">
+                  Each paragraph should focus on only one idea. This makes the message easier to follow and reduces confusion. When you mix too many topics in one paragraph, the reader has to work harder to understand. Clear structure improves understanding and makes your writing more professional.
+                </div>
+              </li>
+              <li class="item" data-point="2">2. Use headings and lists <span class="arrow">&#8250;</span>
+                <div class="explanation">
+                  Headings help the reader know what each part is about. Lists break down information into smaller pieces that are easier to scan. This is especially useful for instructions or steps. It helps busy readers find what they need quickly.
+                </div>
+              </li>
+              <li class="item" data-point="3">3. Keep sentences short <span class="arrow">&#8250;</span>
+                <div class="explanation">
+                  Short sentences are easier to read and understand. They help the reader stay focused and avoid getting lost in long explanations. Aim for about 15 to 20 words per sentence. This improves clarity and makes your writing more user-friendly.
+                </div>
+              </li>
+              <li class="item" data-point="4">4. Keep subject &amp; verb close together <span class="arrow">&#8250;</span>
+                <div class="explanation">
+                  The subject is the person or thing doing something. The verb is the action. Keeping them close together makes sentences clearer and easier to understand. When you separate them with extra information, it’s harder for the reader to follow.
+                </div>
+              </li>
+              <li class="item" data-point="7">7. Use active voice <span class="arrow">&#8250;</span>
+                <div class="explanation">
+                  In active voice, the subject does the action. For example, “We will send your result.” In passive voice, the action happens to the subject, like “The result will be sent.” Active voice is clearer, easier to read, and sounds more human.
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="checklist-section">
+            <div class="section-title">Word choice</div>
+            <ul>
+              <li class="item" data-point="5">5. Use everyday words <span class="arrow">&#8250;</span>
+                <div class="explanation">
+                  Choose words that people use in daily life. Avoid formal or technical language when a simpler word will do. Using everyday language helps more people understand your message. It also feels friendlier and more direct.
+                </div>
+              </li>
+              <li class="item" data-point="6">6. Explain difficult words <span class="arrow">&#8250;</span>
+                <div class="explanation">
+                  Sometimes you must use a difficult word, like a legal or official term. When you do, explain what it means right away. This shows respect for your reader and helps them feel confident. Never assume everyone knows the same vocabulary.
+                </div>
+              </li>
+              <li class="item" data-point="8">8. Address the reader <span class="arrow">&#8250;</span>
+                <div class="explanation">
+                  Write like you’re speaking directly to the reader. Use “you” to make the message feel personal. This helps the reader feel involved and makes your writing more engaging. It also builds trust and clarity.
+                </div>
+              </li>
+              <li class="item" data-point="9">9. Omit unneeded words <span class="arrow">&#8250;</span>
+                <div class="explanation">
+                  Say what you mean in as few words as possible. Remove filler, repetition, or formal phrases that don’t add value. This makes your message faster to read and easier to understand. It respects the reader’s time.
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="checklist-section">
+            <ul>
+              <li class="item" data-point="10">10. Proof read your work <span class="arrow">&#8250;</span>
+                <div class="explanation">
+                  After writing, take time to check your text. Look for spelling errors, long sentences, or unclear ideas. Reading your text out loud can help you find awkward phrases. Good proofreading makes your writing clear and professional.
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <button class="begin-btn" id="beginBtn">Begin Challenge</button>
+      </div>
     </div>
-
-    <div class="checklist-scroll">
-      <div class="checklist-section">
-        <div class="section-title">Structure</div>
-        <ul>
-          <li class="item" data-point="1">1. One topic per paragraph <span class="arrow">&#8250;</span>
-            <div class="explanation">
-              Each paragraph should focus on only one idea. This makes the message easier to follow and reduces confusion. When you mix too many topics in one paragraph, the reader has to work harder to understand. Clear structure improves understanding and makes your writing more professional.
-            </div>
-          </li>
-          <li class="item" data-point="2">2. Use headings and lists <span class="arrow">&#8250;</span>
-            <div class="explanation">
-              Headings help the reader know what each part is about. Lists break down information into smaller pieces that are easier to scan. This is especially useful for instructions or steps. It helps busy readers find what they need quickly.
-            </div>
-          </li>
-          <li class="item" data-point="3">3. Keep sentences short <span class="arrow">&#8250;</span>
-            <div class="explanation">
-              Short sentences are easier to read and understand. They help the reader stay focused and avoid getting lost in long explanations. Aim for about 15 to 20 words per sentence. This improves clarity and makes your writing more user-friendly.
-            </div>
-          </li>
-          <li class="item" data-point="4">4. Keep subject &amp; verb close together <span class="arrow">&#8250;</span>
-            <div class="explanation">
-              The subject is the person or thing doing something. The verb is the action. Keeping them close together makes sentences clearer and easier to understand. When you separate them with extra information, it’s harder for the reader to follow.
-            </div>
-          </li>
-          <li class="item" data-point="7">7. Use active voice <span class="arrow">&#8250;</span>
-            <div class="explanation">
-              In active voice, the subject does the action. For example, “We will send your result.” In passive voice, the action happens to the subject, like “The result will be sent.” Active voice is clearer, easier to read, and sounds more human.
-            </div>
-          </li>
-        </ul>
-      </div>
-
-      <div class="checklist-section">
-        <div class="section-title">Word choice</div>
-        <ul>
-          <li class="item" data-point="5">5. Use everyday words <span class="arrow">&#8250;</span>
-            <div class="explanation">
-              Choose words that people use in daily life. Avoid formal or technical language when a simpler word will do. Using everyday language helps more people understand your message. It also feels friendlier and more direct.
-            </div>
-          </li>
-          <li class="item" data-point="6">6. Explain difficult words <span class="arrow">&#8250;</span>
-            <div class="explanation">
-              Sometimes you must use a difficult word, like a legal or official term. When you do, explain what it means right away. This shows respect for your reader and helps them feel confident. Never assume everyone knows the same vocabulary.
-            </div>
-          </li>
-          <li class="item" data-point="8">8. Address the reader <span class="arrow">&#8250;</span>
-            <div class="explanation">
-              Write like you’re speaking directly to the reader. Use “you” to make the message feel personal. This helps the reader feel involved and makes your writing more engaging. It also builds trust and clarity.
-            </div>
-          </li>
-          <li class="item" data-point="9">9. Omit unneeded words <span class="arrow">&#8250;</span>
-            <div class="explanation">
-              Say what you mean in as few words as possible. Remove filler, repetition, or formal phrases that don’t add value. This makes your message faster to read and easier to understand. It respects the reader’s time.
-            </div>
-          </li>
-        </ul>
-      </div>
-
-      <div class="checklist-section">
-        <ul>
-          <li class="item" data-point="10">10. Proofread your work <span class="arrow">&#8250;</span>
-            <div class="explanation">
-              After writing, take time to check your text. Look for spelling errors, long sentences, or unclear ideas. Reading your text out loud can help you find awkward phrases. Good proofreading makes your writing clear and professional.
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <button class="begin-btn" id="beginBtn">Begin Challenge</button>
   </div>
   <script type="module" src="./src/check-list.js"></script>
 </body>

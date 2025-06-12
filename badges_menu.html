@@ -1,81 +1,85 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="chrome-extension-page">
 <head>
   <meta charset="UTF-8">
   <title>Plainify</title>
+  <link rel="stylesheet" href="./public/global-style.css">
   <link rel="stylesheet" href="./public/badges_menu.css">
   <link href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap" rel="stylesheet">
 </head>
-<body>
-  <!-- Header -->
-  <div class="header-row">
-    <img src="./public/assets/logo_plan.png" alt="Plainify Logo" class="logo-img">
-    <div class="header-icons">
-      <span class="icon-bell">&#128276;</span>
-      <span class="icon-user">&#128100;</span>
-    </div>
-  </div>
+<body class="chrome-extension-page">
+  <div class="chrome-extension-wrapper">
+    <div class="chrome-extension-content">
+      <!-- Header -->
+      <div class="header-row">
+        <img src="./public/assets/logo_plan.png" alt="Plainify Logo" class="logo-img">
+        <div class="header-icons">
+          <span class="icon-bell">&#128276;</span>
+          <span class="icon-user">&#128100;</span>
+        </div>
+      </div>
 
-  <div class="container">
-    <div class="badge-stats-row">
-        <div class="badge-card">
-            <div class="badge-card-content">
-                <div class="badge-number">12</div>
-                <div class="badge-label">days played</div>
+      <div class="container">
+        <div class="badge-stats-row">
+            <div class="badge-card">
+                <div class="badge-card-content">
+                    <div class="badge-number">12</div>
+                    <div class="badge-label">days played</div>
+                </div>
+            </div>
+            <div class="badge-card">
+                <div class="badge-card-content">
+                    <div class="badge-number">5</div>
+                    <div class="badge-label">badges earned</div>
+                </div>
             </div>
         </div>
-        <div class="badge-card">
-            <div class="badge-card-content">
-                <div class="badge-number">5</div>
-                <div class="badge-label">badges earned</div>
-            </div>
+      <!-- FIN container -->
+      <div class="badge-progress-card purple">
+        <h3>Times played</h3>
+        <div class="progress-info">4/10</div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 40%;"></div>
         </div>
-    </div>
-   <!-- FIN container -->
-  <div class="badge-progress-card purple">
-    <h3>Times played</h3>
-    <div class="progress-info">4/10</div>
-    <div class="progress-bar">
-      <div class="progress-fill" style="width: 40%;"></div>
-    </div>
-    <div class="badge-icons">
-      <div class="hex filled">1</div>
-      <div class="hex">10</div>
-      <div class="hex">20</div>
-      <div class="hex">50</div>
-      <div class="hex empty"></div>
-    </div>
-  </div>
+        <div class="badge-icons">
+          <div class="hex filled">1</div>
+          <div class="hex">10</div>
+          <div class="hex">20</div>
+          <div class="hex">50</div>
+          <div class="hex empty"></div>
+        </div>
+      </div>
 
-  <div class="badge-progress-card white">
-    <h3>Badges collected</h3>
-    <div class="progress-info">4/10</div>
-    <div class="progress-bar">
-      <div class="progress-fill" style="width: 40%;"></div>
+      <div class="badge-progress-card white">
+        <h3>Badges collected</h3>
+        <div class="progress-info">4/10</div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 40%;"></div>
+        </div>
+        <div class="badge-icons">
+          <div class="hex filled">1</div>
+          <div class="hex">10</div>
+          <div class="hex">20</div>
+          <div class="hex">50</div>
+          <div class="hex empty"></div>
+        </div>
+      </div>
     </div>
-    <div class="badge-icons">
-      <div class="hex filled">1</div>
-      <div class="hex">10</div>
-      <div class="hex">20</div>
-      <div class="hex">50</div>
-      <div class="hex empty"></div>
     </div>
-  </div>
-</div>
-</div>
 
-  <!-- Bottom Navigation -->
-  <div class="bottom-nav">
-    <button class="nav-btn" id="home-btn">
-      <span class="nav-icon">&#8962;</span>
-    </button>
-    <button class="nav-btn" id="badges-btn">
-      <img src="./public/assets/badges.png" alt="Badges" class="nav-img-icon">
-    </button>
+      <!-- Bottom Navigation -->
+      <div class="bottom-nav">
+        <button class="nav-btn" id="home-btn">
+          <span class="nav-icon">&#8962;</span>
+        </button>
+        <button class="nav-btn" id="badges-btn">
+          <img src="./public/assets/badges.png" alt="Badges" class="nav-img-icon">
+        </button>
 
-    <button class="nav-btn" id="tuto-btn">
-      <span class="nav-icon">&#128214;</span>
-    </button>
+        <button class="nav-btn" id="tuto-btn">
+          <span class="nav-icon">&#128214;</span>
+        </button>
+      </div>
   </div>
   <script type="module" src="./src/badges-menu.js"></script>
 </body>
