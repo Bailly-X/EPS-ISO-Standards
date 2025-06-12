@@ -69,10 +69,11 @@ auth.onAuthStateChanged(async (user) => {
         currentRound: 1,
         status: "started"
       });
-      alert("You can go back to the menu and wait for the others");
+      alert("You will be redirected to the menu, you can wait for the others");
+      window.location.href = "./main-menu.html";
       } else {
         readyBtn.disabled = true;
-      alert("You can go back to the menu and wait for the others");
+      alert("You already submitted your text, you can go back to the menu and wait for the others");
       }
   };
 });
