@@ -3,6 +3,10 @@ document.getElementById("ownParagraphe").addEventListener("click", () => {
     window.location.href = "./write-your-text.html";
 });
 
+document.getElementById("backArrow").addEventListener("click", () => {
+  window.location.href = "./main-menu.html";
+});
+
 const randomTexts = [
   "In accordance with the provisions stipulated under Section 17B of the Municipal Oversight Act, prior notification must be effected before occupancy alteration procedures may commence.",
   "All residents are hereby advised that failure to comply with the aforementioned regulations may result in administrative repercussions subject to procedural enforcement.",

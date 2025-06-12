@@ -1,0 +1,146 @@
+.chrome-extension-wrapper {
+    width: 400px !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-family: 'Fredoka One', Arial, sans-serif !important;
+    display: flex !important;
+    flex-direction: column !important;
+    position: relative !important;
+}
+
+/* Container interne avec scroll par défaut de Chrome */
+.chrome-extension-content {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 12px !important;
+}
+
+/* Reset pour html et body (à appliquer sur chaque page) */
+html.chrome-extension-page,
+body.chrome-extension-page {
+  margin: 0;
+  padding: 0;
+  width: 400px;
+  min-height: 600px;        /* fenêtre fixe */
+  overflow-x: hidden;   /* pas de scroll horizontal */
+  overflow-y: auto;     /* le seul scroll vertical */
+  box-sizing: border-box;
+  font-family: 'Fredoka One', Arial, sans-serif;
+}
+
+/* =====================================
+   EXEMPLES D'ADAPTATION POUR VOS PAGES EXISTANTES
+   ===================================== */
+
+/* Pour la page de connexion (style popup) */
+.chrome-extension-wrapper .popup-style {
+    width: 92%;
+    max-width: 370px;
+    margin: 24px auto 0 auto;
+    background: #f8fefe;
+    border-radius: 24px;
+    box-shadow: 0 2px 18px #d9caff44;
+    padding: 24px;
+    box-sizing: border-box;
+}
+
+/* Pour les pages de jeu (style container) */
+.chrome-extension-wrapper .game-style {
+    width: 100%;
+    max-width: 380px;
+    margin: 0 auto;
+    padding: 0 8px;
+    box-sizing: border-box;
+}
+
+/* Header standardisé */
+.chrome-extension-wrapper .header-row {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 16px;
+    box-sizing: border-box;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+/* Boutons standardisés */
+.chrome-extension-wrapper .main-btn,
+.chrome-extension-wrapper .submit-btn {
+    width: 100%;
+    max-width: 320px;
+    margin: 20px auto;
+    padding: 14px 0;
+    background: #5f16ea;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 2px 10px #a98ee944;
+    transition: background 0.15s;
+    display: block;
+}
+
+.chrome-extension-wrapper .main-btn:hover,
+.chrome-extension-wrapper .submit-btn:hover {
+    background: #330083;
+}
+
+
+
+.chrome-extension-wrapper input:focus,
+.chrome-extension-wrapper textarea:focus {
+    border: 2px solid #6300ec;
+    background: #f5f6fb;
+}
+
+/* =====================================
+   CLASSES UTILITAIRES
+   ===================================== */
+
+/* Pour centrer du contenu */
+.chrome-extension-wrapper .center-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Pour espacer les éléments */
+.chrome-extension-wrapper .spacing-sm { margin: 8px 0; }
+.chrome-extension-wrapper .spacing-md { margin: 16px 0; }
+.chrome-extension-wrapper .spacing-lg { margin: 24px 0; }
+
+/* Pour les textes */
+.chrome-extension-wrapper .text-title {
+    color: #1801e2;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 16px 0 8px;
+}
+
+.chrome-extension-wrapper .text-label {
+    font-weight: 700;
+    font-size: 1.05em;
+    margin-bottom: 4px;
+    color: #222;
+}
+
+.chrome-extension-wrapper .text-error {
+    color: #e90037;
+    font-size: 1em;
+    margin: 8px 0;
+}
+
+html.chrome-extension-page::-webkit-scrollbar,
+body.chrome-extension-page::-webkit-scrollbar,
+.chrome-extension-content::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}

@@ -18,7 +18,7 @@ const db = getFirestore(app);
 const auth = getAuth(app);
 
 document.getElementById("backArrow").addEventListener("click", () => {
-  window.location.href = "./main-menu.html";
+  window.location.href = "./game-menu.html";
 });
 
 const friendListEl = document.querySelector('.friend-list');

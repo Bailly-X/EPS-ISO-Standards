@@ -8,7 +8,6 @@ html, body {
   height: auto;
 }
 
-
 .container {
   width: 100%;                
   max-width: 700px;          
@@ -17,7 +16,6 @@ html, body {
   box-sizing: border-box;    
   padding-bottom: 80; 
 }
-
 
 .header-row {
   display: flex;

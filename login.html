@@ -1,23 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html class="chrome-extension-page">
   <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="./public/global-style.css">
     <link rel="stylesheet" href="./public/iso.css">
   </head>
-  <body>
-    <div class="gradient-bg">
-      <div id="loginSection" class="popup">
-        <label for="username" class="input-label">Username</label>
-        <input type="text" id="username" placeholder="Medium" value="doc"/>
-        <label for="email" class="input-label">Email</label>
-        <input type="email" id="email" placeholder="Medium" value="test@test.com"/>
-        <label for="password" class="input-label">Password</label>
-        <input type="password" id="password" placeholder="Medium" value="testest"/>
-        <button id="loginBtn" class="main-btn">Login</button>
-        <button id="signupBtn" class="main-btn">Create Account</button>
-        <p id="authMessage"></p>
-      </div>
-    </div>
+  <body class="chrome-extension-page">
+        <div class="gradient-bg">
+          <div id="loginSection" class="popup">
+            <label for="username" class="input-label">Username</label>
+            <input type="text" id="username" placeholder="Medium" value="doc"/>
+            <label for="email" class="input-label">Email</label>
+            <input type="email" id="email" placeholder="Medium" value="test@test.com"/>
+            <label for="password" class="input-label">Password</label>
+            <input type="password" id="password" placeholder="Medium" value="testest"/>
+            <button id="loginBtn" class="main-btn">Login</button>
+            <button id="signupBtn" class="main-btn">Create Account</button>
+            <p id="authMessage"></p>
+          </div>
+        </div>
     <script type="module" src="/src/login.js"></script>
   </body>
 </html>

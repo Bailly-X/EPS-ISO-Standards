@@ -1,27 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="chrome-extension-page">
   <head>
     <meta charset="UTF-8">
     <title>Game Results</title>
+    <link rel="stylesheet" href="./public/global-style.css">
     <link rel="stylesheet" href="./public/result.css">
   </head>
-  <body>
-    <div class="header-row">
-      <div id="backButton" class="back-btn">&#8592;</div>
+  <body class="chrome-extension-page">
+    <div class="chrome-extension-wrapper">
+      <div class="chrome-extension-content">
+        <div class="header-row">
+          <div id="backButton" class="back-btn">&#8592;</div>
+        </div>
+        <div class="results-container">
+          <div class="comparison-header">
+            <span id="comparison-title">Comparison Sentence</span>
+            <span class="comparison-counter" id="comparison-counter"></span>
+          </div>
+          <div id="comparison-main"></div>
+          <button class="see-steps-btn" id="see-steps-btn">See all steps <span id="arrow">&#8595;</span></button>
+          <div class="step-list" id="steps-list" style="display:none"></div>
+          <div class="nav-btn-row">
+            <button class="nav-btn" id="prev-btn">Previous</button>
+            <button class="nav-btn" id="next-btn">Next</button>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="results-container">
-      <div class="comparison-header">
-        <span id="comparison-title">Comparison Sentence</span>
-        <span class="comparison-counter" id="comparison-counter"></span>
-      </div>
-      <div id="comparison-main"></div>
-      <button class="see-steps-btn" id="see-steps-btn">See all steps <span id="arrow">&#8595;</span></button>
-      <div class="step-list" id="steps-list" style="display:none"></div>
-      <div class="nav-btn-row">
-        <button class="nav-btn" id="prev-btn">Previous</button>
-        <button class="nav-btn" id="next-btn">Next</button>
-      </div>
-    </div> 
     <script type="module" src="./src/result.js"></script>
   </body>
 </html>
