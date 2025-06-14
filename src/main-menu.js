@@ -31,7 +31,6 @@ function loadShownBadges() {
   }
 }
 
-// Sauvegarder les badges affichés dans le stockage local
 function saveShownBadges() {
   localStorage.setItem('shownBadges', JSON.stringify([...shownBadges]));
 }
@@ -48,17 +47,13 @@ function updateStreakProgress(uniqueDaysCount) {
     }
   }
 
-  console.log(`[DEBUG] ${uniqueDaysCount} jours uniques => ${maxDays} jours cochés.`);
 }
 
 function showBadgePopup(daysCount) {
-  // Vérifier si ce badge a déjà été affiché
   if (shownBadges.has(daysCount)) {
     console.log(`[DEBUG] Badge pour ${daysCount} jours déjà affiché, skip`);
     return;
   }
-
-  // Créer la popup
   const popup = document.createElement('div');
   popup.className = 'badge-popup-overlay';
   popup.innerHTML = `

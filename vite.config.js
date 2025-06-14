@@ -19,6 +19,7 @@ export default defineConfig({
         badges_menu: resolve(__dirname, "./badges_menu.html"),
         check_list: resolve(__dirname, "./check-list.html"),
         tuto_plainlanguage: resolve(__dirname, "./tuto_plainlanguage.html"),
+        time_is_up_page: resolve(__dirname, "./time-is-up-page.html"),
       }
     },
     outDir: 'dist',
