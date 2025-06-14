@@ -1,0 +1,83 @@
+.chrome-extension-wrapper {
+  background: transparent !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Header : barre + compteur */
+.header-row {
+  width: 92%;
+  max-width: 400px;
+  margin: 24px auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.progress-bar {
+  flex: 1;
+  height: 5px;
+  background: #2e00e6;
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+  margin-right: 12px;
+}
+.progress-bar::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  height: 100%;
+  width: 33%;
+}
+
+.comparison-counter {
+  font-size: 1.1em;
+  color: #222;
+  min-width: 36px;
+  text-align: center;
+}
+
+.time-up-content {
+  width: 92%;
+  max-width: 400px;
+  margin: 40px auto;
+  text-align: center;
+}
+
+.time-up-title {
+  font-size: 1.8em;
+  color: #5f16ea;
+  margin-bottom: 24px;
+}
+
+.time-up-image img {
+  width: 100px;
+  max-width: 80%;
+  height: auto;
+  margin-bottom: 24px;
+}
+
+.time-up-subtitle {
+  font-size: 1.2em;
+  color: #222;
+  margin-bottom: 32px;
+  font-weight: 500;
+}
+
+#backToMenu {
+  width: 70%;
+  max-width: 280px;
+}
+
+.gradient-bg {
+  background: linear-gradient(180deg, #d3f4ef 0%, #e9d2fa 100%);
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  padding-top: 24px;
+}

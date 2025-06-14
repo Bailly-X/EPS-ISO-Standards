@@ -45,11 +45,11 @@ function startTimer() {
         timerDiv.textContent = "0:00s";
         plainTextInput.disabled = true;
         submitBtn.disabled = true;
-        submitBtn.textContent = "Time’s up!";
-        alert("Time is up! Please try again next round.");
+        submitBtn.textContent = "Time's up!";
         if (!plainTextInput.disabled && !submitBtn.disabled) {
             submitBtn.click();
         }
+        window.location.href = "./time-is-up-page.html";
     }
   }, 1000);
 }
