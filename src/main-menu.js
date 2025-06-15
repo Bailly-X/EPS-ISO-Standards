@@ -59,12 +59,12 @@ function showBadgePopup(daysCount) {
   popup.innerHTML = `
     <div class="badge-popup">
       <h2>Congratulations!</h2>
-      <p>You earned a new batch!</p>
+      <p>You earned a new badge!</p>
       <div class="badge-icon">
         <div class="badge-number">${daysCount}</div>
       </div>
       <p class="badge-description">Playing ${daysCount} days in a row</p>
-      <button id="receive-badge-btn" class="receive-badge-btn">Receive Batch</button>
+      <button id="receive-badge-btn" class="receive-badge-btn">Receive Badge</button>
     </div>
   `;
 

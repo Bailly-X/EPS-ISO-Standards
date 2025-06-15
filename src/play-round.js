@@ -43,13 +43,13 @@ function startTimer() {
     if (timer <= 0) {
         clearInterval(intervalId);
         timerDiv.textContent = "0:00s";
-        plainTextInput.disabled = true;
-        submitBtn.disabled = true;
         submitBtn.textContent = "Time's up!";
-        if (!plainTextInput.disabled && !submitBtn.disabled) {
+        if (!plainTextInput.disabled && !submitBtn.disabled) {   
+            plainTextInput.disabled = true;
+            submitBtn.disabled = true;
             submitBtn.click();
+            window.location.href = "./time-is-up-page.html";
         }
-        window.location.href = "./time-is-up-page.html";
     }
   }, 1000);
 }
